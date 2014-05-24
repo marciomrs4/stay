@@ -2,7 +2,7 @@
 
 	<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Entrada da Portaria</h3>
+				<h3 class="panel-title"><?php echo $config['moduloName']; ?></h3>
 			</div>
 			<div class="panel-body">
 
@@ -12,7 +12,7 @@
 					
 					<li class="dropdown">
 						<div class="btn-group">
-							<a href="?action=Cadastrar/Novo" type="button" class="btn btn-primary">
+							<a href="/<?php echo $configGlobal['projectName']?>/FrontControler.php?urlModulo=<?php echo $config['moduloName']?>&urlAction=Cadastrar/Doca" type="button" class="btn btn-primary">
 								<span class="glyphicon glyphicon-plus"></span> Novo
 							</a>
 						</div>

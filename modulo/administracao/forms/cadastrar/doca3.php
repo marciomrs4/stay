@@ -1,12 +1,12 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Novo</h3>
+		<h3 class="panel-title">Novo 3</h3>
 	</div>
 	<div class="panel-body">
 		<form class="form-horizontal" method="post" action="" role="form">
 			
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-1 control-label">Doca:</label>
+				<label for="inputEmail3" class="col-sm-1 control-label">Doca 3:</label>
 				<div class="col-sm-4">
 					<input type="text" name="doca" value="" class="form-control" id="inputEmail3"
 						placeholder="Descricao">

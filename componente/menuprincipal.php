@@ -11,15 +11,15 @@
 
 				<div class="btn-group">
 					<button class="btn btn-default btn-lg">
-						<span class="glyphicon glyphicon-th-large"></span> Ceadis
+						<span class="glyphicon glyphicon-th-large"></span> <?php echo($configGlobal['projectName']);?>
 					</button>
 					<button data-toggle="dropdown"
 						class="btn btn-default btn-lg dropdown-toggle">
 						<span class="glyphicon glyphicon-arrow-down"></span>
 					</button>
 					<ul class="dropdown-menu">
-						<li><a href="../portaria/"><span class="glyphicon glyphicon-sort"></span> Portaria</a></li>
-						<li><a href="../administracao/"><span class="glyphicon glyphicon-flash"></span> Administração</a></li>
+						<li><a href="../comercial/"><span class="glyphicon glyphicon-sort"></span> <?php echo $configGlobal['comercial']?></a></li>
+						<li><a href="../administracao/"><span class="glyphicon glyphicon-flash"></span> <?php echo $configGlobal['administracao']?></a></li>
 						<li class="divider"></li>
 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> Alterar Senha</a></li>
 					</ul>
@@ -30,7 +30,7 @@
 
 
 			<div class="nav navbar-left collapse navbar-collapse">
-				<p class="navbar-text">SGP - SISTEMA DE GESTAO PORTARIA</p>
+				<p class="navbar-text"><?php echo($configGlobal['systemName']);?></p>
 			</div>
 			<div class="nav navbar-right collapse navbar-collapse"
 				id="navbar-collapse-1">

@@ -1,5 +1,5 @@
 <?php
 
-header('location: /sgp/modulo/index');
+header('location: /stay/modulo/index');
 
 ?>

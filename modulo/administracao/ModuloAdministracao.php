@@ -2,7 +2,7 @@
 
 	<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Administrativo</h3>
+				<h3 class="panel-title"><?php echo $config['moduloName']; ?></h3>
 			</div>
 			<div class="panel-body">
 
@@ -21,12 +21,23 @@
 									Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li>
-									<a href="index.php"><span class="glyphicon glyphicon-list-alt">
-										</span>
+								<li><a href="<?php 
+								use system\app\ActionController as A;
+								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca')->getUrl();
+								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo
 									</a>
+								<li><a href="<?php 
+								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca2')->getUrl();
+								?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Novo 2
+									</a>									
 								</li>
+								<li><a href="<?php 
+								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca3')->getUrl();
+								?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Novo 3
+									</a>								
 							</ul>
 						</div>
 					</li>
@@ -43,7 +54,9 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li>
-									<a href="administracao.php"><span class="glyphicon glyphicon-list-alt">
+									<a href="<?php 
+									A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('formdefault')->getUrl();
+									?>"><span class="glyphicon glyphicon-list-alt">
 										</span>
 										listar Usuários
 									</a>

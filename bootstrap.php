@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 define('DOCROOT',dirname(__FILE__));
 define('DS',DIRECTORY_SEPARATOR);
 
@@ -13,5 +16,5 @@ function autoload($class){
 	}
 }
 spl_autoload_register('autoload');
-
+include_once 'configGlobal.php';
 ?>

@@ -12,8 +12,7 @@
 					</button>
 
 
-					<p class="navbar-text">..: SGP - Sistema De Gestão Portaria
-						[Tecnologia da Informação] :..</p>
+					<p class="navbar-text"><?php echo $configGlobal['tituloRodape']; ?></p>
 
 				</div>
 				<div class="nav navbar-right collapse navbar-collapse" id="este">
