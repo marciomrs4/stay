@@ -3,7 +3,7 @@
 		<h3 class="panel-title">Novo</h3>
 	</div>
 	<div class="panel-body">
-		<form class="form-horizontal" method="post" action="" role="form">
+		<form class="form-horizontal" method="post" action="controller/Controller.php" role="form">
 			
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-1 control-label">Doca:</label>

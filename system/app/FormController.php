@@ -13,7 +13,7 @@ class FormController
 	public $modulo;
 	public $action;
 	
-	public function __construct($session)
+	public function __construct($session = null)
 	{
 		$this->session = $session;
 		
@@ -55,7 +55,7 @@ class FormController
 				
 			
 			
-			$this->form = strtolower($this->dirForm.$form.'.php');
+			$this->form = strtolower($form.'.php');
 			
 		}
 		

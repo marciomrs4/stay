@@ -55,7 +55,7 @@
 							<ul class="dropdown-menu" role="menu">
 								<li>
 									<a href="<?php 
-									A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('formdefault')->getUrl();
+									A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('/formdefault')->getUrl();
 									?>"><span class="glyphicon glyphicon-list-alt">
 										</span>
 										listar Usuários
