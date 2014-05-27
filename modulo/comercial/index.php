@@ -15,7 +15,7 @@ use system\app\FormController;
 
 $controler = new FormController($_SESSION);
 
-$controler->setForm('/Cadastrar/Doca')->getForm();
+$controler->setForm()->getForm();
 
 session_destroy();
 

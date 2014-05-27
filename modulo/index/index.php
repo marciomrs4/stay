@@ -2,5 +2,9 @@
 include_once '../../bootstrap.php';
 
 
-include_once '../../forms/login.php';
+use system\app\FormController as Form;
+
+$Controller = new Form();
+$Controller->setForm('../../forms/login')->getForm();
+
 ?>

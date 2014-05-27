@@ -55,7 +55,7 @@ class FormController
 				
 			
 			
-			$this->form = strtolower($this->dirForm.$form.'.php');
+			$this->form = strtolower($form.'.php');
 			
 		}
 		
