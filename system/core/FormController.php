@@ -1,6 +1,6 @@
 <?php
 
-namespace system\app;
+namespace system\core;
 
 class FormController
 {
@@ -40,7 +40,7 @@ class FormController
 			echo 'Arquivo não encontrado';
 		}
 	
-		unset($_SESSION[$this->action]);
+
 
 	}
 	

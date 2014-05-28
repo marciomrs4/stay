@@ -1,6 +1,6 @@
 <?php
 
-namespace system\app;
+namespace system\core;
 
 class SessionController
 {

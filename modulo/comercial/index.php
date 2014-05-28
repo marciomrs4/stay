@@ -8,16 +8,15 @@ include '../../componente/menuprincipal.php';
 
 include '../../modulo/comercial/ModuloComercial.php';
 
-use system\app;
-use system\app\Controler;
-use system\app\FormController;
+use system\core;
+use system\core\Controler;
+use system\core\FormController;
 
 
 $controler = new FormController($_SESSION);
 
 $controler->setForm()->getForm();
 
-session_destroy();
 
 include '../../componente/rodape.php';
 ?>

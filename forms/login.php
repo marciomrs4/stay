@@ -13,7 +13,7 @@
 
 		<div class="panel panel-primary">
 			<div class="panel-heading panel-title">
-				SGP - Sistema De Gestão de Portaria - Login
+				Intranet stay - Login
 			</div>
 			<div class="panel-body well">
 				<div class="row">
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 			<div class="panel-heading panel-title">
-				 ..:: Tecnologia da Informação - Ceadis ::..
+				 ..:: Tecnologia da Informação ::..
 			</div>
 		</div>
 		
