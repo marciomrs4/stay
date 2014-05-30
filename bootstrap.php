@@ -7,7 +7,7 @@ define('DS',DIRECTORY_SEPARATOR);
 
 function autoload($class){
 	
-	$file = str_replace('\\',DS, DOCROOT).DS.$class.'.php';
+	$file = str_replace('\\',DS, DOCROOT.DS.$class).'.php';
 	
 	if(file_exists($file)){
 		require_once $file;

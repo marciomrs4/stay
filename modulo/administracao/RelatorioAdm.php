@@ -80,8 +80,9 @@ include '../../modulo/administracao/ModuloAdministracao.php';
 					<tbody>
 						<tr>
 							<td class="col-md-1">
+							
 								<div class="btn-group">
-									<button type="button" class="btn btn-default dropdown-toggle"
+									<button type="button" class="btn btn-default btn-xs dropdown-toggle"
 										data-toggle="dropdown">
 										Opções <span class="caret"></span>
 									</button>
@@ -96,6 +97,7 @@ include '../../modulo/administracao/ModuloAdministracao.php';
 												Exportar</a></li>
 									</ul>
 								</div>
+								
 							</td>
 							<td>Credit Card</td>
 							<td>04/08/2013</td>

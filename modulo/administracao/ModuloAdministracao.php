@@ -22,8 +22,8 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="<?php 
-								use system\app\ActionController as A;
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca')->getUrl();
+								use system\core\ActionController as A;
+								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('alterar/docaalterar')->setValue(rand(1,100))->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo
 									</a>

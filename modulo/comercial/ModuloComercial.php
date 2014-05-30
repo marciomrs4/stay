@@ -12,7 +12,14 @@
 					
 					<li class="dropdown">
 						<div class="btn-group">
-							<a href="/<?php echo $configGlobal['projectName']?>/FrontControler.php?urlModulo=<?php echo $config['moduloName']?>&urlAction=Cadastrar/Doca" type="button" class="btn btn-primary">
+							<a href="<?php 
+							use system\core\ActionController as L;
+							L::actionUrl()->setProjecName($configGlobal['projectName'])
+							->setUrlModulo($config['moduloName'])
+							->setUrlAction('cadastrar/doca')
+							->getUrl();
+
+							?>" type="button" class="btn btn-primary">
 								<span class="glyphicon glyphicon-plus"></span> Novo
 							</a>
 						</div>

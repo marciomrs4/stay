@@ -3,13 +3,16 @@
 		<h3 class="panel-title">Novo</h3>
 	</div>
 	<div class="panel-body">
-	<div>
-		<?php print_r($_SESSION['erro']);?>
-	</div>
+		<?php 
+		use system\core\FormController;
+		$form = new FormController();
+		$form->validadeForm('cadastrar/doca')
+			 ->showErros();
+		?>
 		<form class="form-horizontal" action="action/action.php" method="post" role="form">
 			
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-1 control-label">Doca - Esse mesmo:</label>
+				<label for="inputEmail3" class="col-sm-1 control-label">Doca:</label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" name="doca" id="inputEmail3"
 						placeholder="Descricao">

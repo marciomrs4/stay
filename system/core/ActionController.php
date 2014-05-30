@@ -6,6 +6,7 @@ class ActionController
 	protected $projectName;
 	protected $urlModulo;
 	protected $urlAction;
+	protected $urlValue;
 	
 	protected $controler = 'FrontControler.php';
 	
@@ -35,10 +36,20 @@ class ActionController
 		return $this;
 	}
 	
+	public function setValue($urlValue)
+	{
+		settype($urlValue, 'int');
+		$this->urlValue = $urlValue;
+		return $this;
+	}
+	
 	public function getUrl()
 	{
-		echo '/'.$this->projectName.'/'.$this->controler.'?urlModulo='.$this->urlModulo.'&
-				urlAction='.$this->urlAction;
+		echo '/',$this->projectName,'/',
+				 $this->controler,
+			   '?urlModulo=',$this->urlModulo,
+			   '&urlAction=',$this->urlAction,'
+				&urlValue=',$this->urlValue;
 	}
 	
 }

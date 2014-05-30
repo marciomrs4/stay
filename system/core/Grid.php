@@ -2,7 +2,7 @@
 
 namespace system\core;
 
-class TableController
+class Grid
 {
 
 	/**
@@ -144,13 +144,20 @@ class TableController
 					
 			for($x = $this->colunaoculta; $x < $this->coluna ; $x++)
 			{
-				
+				if($this->columnNumber == $x){
 				echo("<td>{$this->getFunctionColumn($campo[$x],$x)}</td>");
+				}
+				echo("<td>{$campo[$x]}</td>");
 			}
 			$linha++;
 			echo('</tr>');
 		}
 		echo('</table>');
+	}
+	
+	public function addOption(Option $option)
+	{
+		//$option->
 	}
 
 	/**
@@ -165,7 +172,7 @@ class TableController
 	 * @example Metodo que mostra a tabela na tela, chamando todos
 	 * os metodos anteriores
 	 */
-	public function mostrarDatagrid()
+	public function show()
 	{
 			self::criaCabecalho();
 			self::criaTabela();

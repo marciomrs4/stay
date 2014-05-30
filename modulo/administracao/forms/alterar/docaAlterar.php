@@ -3,10 +3,16 @@
 		<h3 class="panel-title">Novo</h3>
 	</div>
 	<div class="panel-body">
-		<form class="form-horizontal" method="post" action="action/Controller.php" role="form">
+		<?php 
+		use system\core\FormController;
+		$form = new FormController();
+		$form->validadeForm('alterar/docaAlterar')
+			 ->showErros();
+		?>
+		<form class="form-horizontal" id="alterar/docaAlterar" method="post" action="action/Controller.php" role="form">
 			
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-1 control-label">Doca:</label>
+				<label for="inputEmail3" class="col-sm-1 control-label">Doca Alterada:</label>
 				<div class="col-sm-4">
 					<input type="text" name="doca" value="" class="form-control" id="inputEmail3"
 						placeholder="Descricao">
