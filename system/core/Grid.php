@@ -2,7 +2,7 @@
 
 namespace system\core;
 
-class TableController
+class Grid
 {
 
 	/**
@@ -165,7 +165,7 @@ class TableController
 	 * @example Metodo que mostra a tabela na tela, chamando todos
 	 * os metodos anteriores
 	 */
-	public function mostrarDatagrid()
+	public function show()
 	{
 			self::criaCabecalho();
 			self::criaTabela();

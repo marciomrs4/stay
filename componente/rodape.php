@@ -2,7 +2,7 @@
 		<footer>
 			<nav class="navbar navbar-default navbar-fixed-bottom"
 				role="navigation">
-
+					
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
 						data-target="#este">
@@ -23,7 +23,13 @@
 
 
 			</nav>
-			<nav class="navbar navbar-default" role="navigation"></nav>
+			<nav class="navbar navbar-default" role="navigation">
+			<?php 
+					use system\core\FormController as M;
+					$Message = new M();
+					$Message->showMessages();
+					?>
+			</nav>
 
 		</footer>
 
