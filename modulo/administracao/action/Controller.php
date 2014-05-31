@@ -11,7 +11,6 @@ try {
 	
 	$post->setPost($_POST)
 		->cadastrarAdmin();
-	 
 	$post->clearPost();
 	
 } catch (Exception $e) {

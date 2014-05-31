@@ -24,6 +24,7 @@ $_SESSION['erros'] = $e->findMessages(array(
 					'notEmpty' => 'O valor {{input}} não pode ser vazio',
 					'alnum' => 'o valor {{input}} tem ser alfanumerico'
 			));
+<<<<<<< HEAD
 
 $form = new FormController();
 
@@ -31,8 +32,15 @@ $form->setModulo($_SESSION['moduloTemp'])
 	 ->setAction($_SESSION['actionTemp'])
 	 ->setValue($_SESSION['valueTemp']);
 
+=======
+>>>>>>> 279865917859b4b9fb7f0dfe49b48720caaf9768
 }
 
+$form = new FormController();
+
+$form->setModulo($_SESSION['moduloTemp'])
+	 ->setAction($_SESSION['actionTemp'])
+	 ->setValue($_SESSION['valueTemp']);
 
 
 header('location: '.$_SERVER['HTTP_REFERER']);

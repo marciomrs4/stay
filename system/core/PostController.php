@@ -43,8 +43,7 @@ abstract class PostController
 	{
 		return(base64_decode($this->post[$getname]));
 	}
-	
-	#Metodo para fazer debug
+
 	public function listarpost()
 	{
 		foreach ($this->post as $campo => $valor)

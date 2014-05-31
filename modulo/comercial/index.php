@@ -13,18 +13,18 @@ use system\core\Controler;
 use system\core\FormController;
 use system\model\TbUsuario;
 
-/*  echo '<pre>';
+echo '<pre>';
 print_r($_SESSION);
 echo '</pre>'; 
- */ 
+
 $controler = new FormController();
 
 $controler->setForm()->getForm();
 
-/* echo '<pre>';
+ echo '<pre>';
 print_r($_SESSION);
 echo '</pre>';
- */
+
 //session_unset();
 
 include '../../componente/rodape.php';

@@ -20,6 +20,7 @@ class FormController
 	}
 	
 	public function setModulo($modulo=null)
+<<<<<<< HEAD
 	{
 		$this->modulo = ($_SESSION['modulo'] != '') ? $_SESSION['modulo'] : $modulo;
 		$_SESSION['modulo'] = $this->modulo;
@@ -43,6 +44,31 @@ class FormController
 		return $this;
 	}
 	
+=======
+	{
+		$this->modulo = ($_SESSION['modulo'] != '') ? $_SESSION['modulo'] : $modulo;
+		$_SESSION['modulo'] = $this->modulo;
+		return $this;
+	}
+	
+	public function setAction($action=null)
+	{
+		
+		$_SESSION['action'] = $this->validateSet($_SESSION['action']);
+		
+		$this->action = ($_SESSION['action'] != '') ? $_SESSION['action'] : $action;
+		$_SESSION['action'] = $this->action;
+		return $this;
+	}
+	
+	public function setValue($value=null)
+	{
+		$this->value = ($_SESSION['value'] != '') ? $_SESSION['value'] : $value;
+		$_SESSION['value'] = $this->value;
+		return $this;
+	}
+	
+>>>>>>> 279865917859b4b9fb7f0dfe49b48720caaf9768
 	
 	public function getForm()
 	{
@@ -81,7 +107,10 @@ class FormController
 		if(!isset($_SESSION[$formName])){
 			$_SESSION[$formName] == null;
 		}
+<<<<<<< HEAD
 		return $this;
+=======
+>>>>>>> 279865917859b4b9fb7f0dfe49b48720caaf9768
 	}
 	
 	public function showErros()

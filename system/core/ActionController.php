@@ -46,8 +46,8 @@ class ActionController
 	public function getUrl()
 	{
 		echo '/',$this->projectName,'/',
-				 $this->controler,
-			   '?urlModulo=',$this->urlModulo,
+				 $this->controler,'?
+				 urlModulo=',$this->urlModulo,
 			   '&urlAction=',$this->urlAction,'
 				&urlValue=',$this->urlValue;
 	}
