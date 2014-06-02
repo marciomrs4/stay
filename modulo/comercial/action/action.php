@@ -26,11 +26,9 @@ $_SESSION['erros'] = $e->findMessages(array(
 			));
 
 $form = new FormController();
-
 $form->setModulo($_SESSION['moduloTemp'])
 	 ->setAction($_SESSION['actionTemp'])
 	 ->setValue($_SESSION['valueTemp']);
-
 
 }
 

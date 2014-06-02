@@ -82,7 +82,7 @@ class FormController
 		if(!isset($_SESSION[$formName])){
 			//$_SESSION[$formName] == null;
 		}
-		return $this;
+		return $this;	
 	}
 	
 	public function showErros()
