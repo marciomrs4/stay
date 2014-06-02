@@ -13,9 +13,9 @@ use system\core\Controler;
 use system\core\FormController;
 use system\model\TbUsuario;
 
-echo '<pre>';
+/* echo '<pre>';
 print_r($_SESSION);
-echo '</pre>'; 
+echo '</pre>';  */
 
 $controler = new FormController();
 
