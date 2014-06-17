@@ -28,6 +28,7 @@ class AcceptForm extends PostController
 				
 			} catch (Exception $e) {
 				
+				throw new \Exception();
 			}		   
 					   
 		} catch (Exception $e) {

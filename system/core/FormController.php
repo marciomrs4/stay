@@ -14,6 +14,7 @@ class FormController
 	public $action;
 	public $value;
 	
+	
 	public function __construct()
 	{	
 		$this->setModulo()->setAction();
@@ -21,30 +22,31 @@ class FormController
 	
 	public function setModulo($modulo=null)
 	{
-		$this->validateSet();
-		$this->modulo = ($_SESSION['modulo'] != '') ? $_SESSION['modulo'] : $modulo;
+		$form_modulo = null;
+		extract($_SESSION,EXTR_PREFIX_ALL,'form');
+		$this->modulo = ($modulo != null) ? $modulo : $form_modulo;
 		$_SESSION['modulo'] = $this->modulo;
 		return $this;
 	}
 	
 	public function setAction($action=null)
 	{
-		
-		$_SESSION['action'] = $this->validateSet($_SESSION['action']);
-		
-		$this->action = ($_SESSION['action'] != '') ? $_SESSION['action'] : $action;
+		$form_action = null;
+		extract($_SESSION,EXTR_PREFIX_ALL,'form');
+		$this->action = ($action != null) ? $action : $form_action;
 		$_SESSION['action'] = $this->action;
 		return $this;
 	}
 	
 	public function setValue($value=null)
 	{
-		$this->value = ($_SESSION['value'] != '') ? $_SESSION['value'] : $value;
+		$form_value = null;
+		extract($_SESSION,EXTR_PREFIX_ALL,'form');
+		$this->value = ($value != null) ? $value : $form_value;
 		$_SESSION['value'] = $this->value;
 		return $this;
 	}
 	
-		
 	public function getForm()
 	{
 		if(file_exists($this->form)){
@@ -62,15 +64,9 @@ class FormController
 	public function setForm($form = null)
 	{
 		if($form == null){
-
 			 	$this->form = strtolower($this->dirForm.$this->action.'.php');
-
-			}else{
-				
-			
-			
+		}else{
 			$this->form = strtolower($form.'.php');
-			
 		}
 		
 		return $this;

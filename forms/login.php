@@ -33,7 +33,7 @@
 					</div>
 					<div class="col-sm-6 col-sm-offset-1">
 						<div class="panel-body">
-							<img src="../../img/logotipo.png" class="img-responsive img-rounded" alt="Logotipo Ceadis">
+							<img src="../../img/logo-stay.JPG" class="img-responsive img-rounded" alt="Logotipo">
 						</div>
 					</div>
 				</div>

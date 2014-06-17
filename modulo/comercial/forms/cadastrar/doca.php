@@ -14,7 +14,7 @@
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-1 control-label">Doca:</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control" name="doca" id="inputEmail3"
+					<input type="text" class="form-control" name="doca" value="<?php  ?>" id="inputEmail3"
 						placeholder="Descricao">
 				</div>
 			</div>

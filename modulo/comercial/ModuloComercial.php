@@ -17,6 +17,7 @@
 							L::actionUrl()->setProjecName($configGlobal['projectName'])
 							->setUrlModulo($config['moduloName'])
 							->setUrlAction('cadastrar/doca')
+							->setValue(10)
 							->getUrl();
 
 							?>" type="button" class="btn btn-primary">

@@ -17,13 +17,21 @@ try {
 	
 } catch (Exception $e) {
 
-$_SESSION['erro'] =	$e->getMainMessage();
-$_SESSION['erros'] = $e->findMessages(array(
-					'string' => 'Este campo deve conter um Texto {{input}}',
-					'email'  => 'O valor {{name}} não é um email valido',
-					'notEmpty' => 'O valor {{input}} não pode ser vazio',
-					'alnum' => 'o valor {{input}} tem ser alfanumerico'
-			));
+	$_SESSION['erro'] = $e->getMessage();
+
+if(method_exists($e,'getMainMessage')){
+	$_SESSION['erro'] =	$e->getMainMessage();
+	
+	$_SESSION['erros'] = $e->findMessages(array(
+			'string' => 'Este campo deve conter um Texto {{input}}',
+			'email'  => 'O valor {{name}} não é um email valido',
+			'notEmpty' => 'O valor {{input}} não pode ser vazio',
+			'alnum' => 'o valor {{input}} tem ser alfanumerico'
+	));
+
+}
+
+
 
 $form = new FormController();
 $form->setModulo($_SESSION['moduloTemp'])
