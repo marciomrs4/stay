@@ -5,15 +5,23 @@ class GridOption implements Option
 {
 	protected $action = array();
 	
-	public function addAction(ActionController $action)
+	
+	
+	public function addAction($action)
 	{
 		
-		$this->action = $action;
+		//$this->action[] = $action;
+		
+	    
+	    
 		
 	}
 
-	public function setValueAction($value)
+	public function getAction()
 	{
-		$this->action->setValue($value);
+	   return $this->action;
+
+	   
+	   
 	}
 }

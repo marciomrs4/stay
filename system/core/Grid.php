@@ -145,8 +145,9 @@ class Grid
 			for($x = $this->colunaoculta; $x < $this->coluna ; $x++)
 			{
 				if($this->columnNumber == $x){
-				echo("<td>{$this->getFunctionColumn($campo[$x],$x)}</td>");
+				    echo("<td>{$this->getFunctionColumn($campo[$x],$x)}</td>");
 				}
+				
 				echo("<td>{$campo[$x]}</td>");
 			}
 			$linha++;
@@ -157,16 +158,13 @@ class Grid
 	
 	public function addOption(Option $option)
 	{
-		//$option->
+
+		foreach ($option->getAction() as $function){
+		  $this->setFunctionColumn($function, 0);
+		}
+		
 	}
 
-	/**
-	 *
-	 * Enter description here ...
-	 * @param int $campo
-	 * @example Criar as colunas de link com o ID que deve ser a primeira posicao
-	 * do array informado no array dados no construtor
-	 */
 	
 	/**
 	 * @example Metodo que mostra a tabela na tela, chamando todos

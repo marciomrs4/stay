@@ -6,11 +6,11 @@ use system\core\DataBase;
 class TbUsuario extends DataBase
 {
 	
-	public function save($dados)
+	public function findAll()
 	{
 		try {
 			
-			$stmt = $this->conexao->prepare('SELECT * FROM tb_usuario LIMIT 5');
+			$stmt = $this->conexao->prepare('select * from tb_usuario limit 5');
 			
 			$stmt->execute();
 			
