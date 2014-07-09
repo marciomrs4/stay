@@ -2,6 +2,7 @@
 use system\core\Grid;
 use system\core\GridOption;
 use system\model\TbUsuario;
+use system\core\ActionController;
 include_once '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'/bootstrap.php';
 include_once 'config.php';
 
@@ -18,9 +19,14 @@ $users = new TbUsuario();
 $grid = new Grid($coluns,$users->findAll());
 
 $gridOption = new GridOption();
-
-$gridOption->addAction('Alterar/Usuario');
-$gridOption->addAction('Adcionar/Usuario');
+$gridOption->setUrl('mudar/remover')
+            ->setType('pencil')
+           ->addAction('Remover')
+           ->setUrl('action/Editar')
+            ->addAction('Editar')
+            ->setUrl('action/Alterar')
+            ->setType('search')
+            ->addAction('Alterar');
 
 
 $grid->colunaoculta = 0;

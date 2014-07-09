@@ -23,7 +23,11 @@
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="<?php 
 								use system\core\ActionController as A;
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('alterar/docaalterar')->setValue(rand(1,100))->getUrl();
+								A::actionUrl()->setProjecName($configGlobal['projectName'])
+								               ->setUrlModulo('administracao')
+								               ->setUrlAction('cadastrar/doca')
+								               ->setValue(rand(1,100))
+								               ->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo
 									</a>
@@ -34,7 +38,8 @@
 									</a>									
 								</li>
 								<li><a href="<?php 
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca3')->getUrl();
+								A::actionUrl()->setUrlAction('Cadastrar/doca3')
+								              ->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo 3
 									</a>								

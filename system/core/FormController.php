@@ -72,13 +72,6 @@ class FormController
 		
 	}
 	
-	public function validadeForm($formName)
-	{
-		if(!isset($_SESSION[$formName])){
-			//$_SESSION[$formName] == null;
-		}
-		return $this;	
-	}
 	
 	private function validateSet($var)
 	{

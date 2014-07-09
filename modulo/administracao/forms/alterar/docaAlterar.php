@@ -4,10 +4,9 @@
 	</div>
 	<div class="panel-body">
 		<?php 
-		use system\core\FormController;
-		$form = new FormController();
-		$form->validadeForm('alterar/docaAlterar')
-			 ->showErros();
+		use system\core\Error;
+		$form = new Error();
+		$form->showErrors();
 		?>
 		<form class="form-horizontal" id="alterar/docaAlterar" method="post" action="action/Controller.php" role="form">
 			

@@ -4,12 +4,12 @@
 	</div>
 	<div class="panel-body">
 		<?php 
-		use system\core\FormController;
-		$form = new FormController();
+		use system\core\Error;
+		$form = new Error();
 		$form->validadeForm('cadastrar/doca')
-			 ->showErros();
+		     ->showErrors();
 		?>
-		<form class="form-horizontal" action="action/action.php" method="post" role="form">
+		<form name="cadastrar/doca" class="form-horizontal" action="action/action.php" method="post" role="form">
 			
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-1 control-label">Doca:</label>

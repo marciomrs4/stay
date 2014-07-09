@@ -58,6 +58,8 @@ class Grid
 	
 	public $columnNumber;
 
+	protected $option;
+	
 	/**
 	 *
 	 * Enter description here ...
@@ -136,33 +138,34 @@ class Grid
 	{
 		$linha = 0;
 		
-		foreach ($this->dados as $campo)
-		{
+		foreach ($this->dados as $campo){
 			
 			$this->coluna = count($campo) / 2;
+			
 			echo("<tr>");			
-					
-			for($x = $this->colunaoculta; $x < $this->coluna ; $x++)
-			{
-				if($this->columnNumber == $x){
-				    echo("<td>{$this->getFunctionColumn($campo[$x],$x)}</td>");
-				}
+			
+			for($x = $this->colunaoculta; $x < $this->coluna ; $x++){
+			    
+    				if($this->columnNumber == $x){
+
+                                    $this->option->setValue($campo[0]);
+    				    echo '<td>',$this->option->createOption($campo[0]),'</td>';
+    			
+			    }
 				
 				echo("<td>{$campo[$x]}</td>");
 			}
+			
 			$linha++;
 			echo('</tr>');
 		}
+		
 		echo('</table>');
 	}
 	
 	public function addOption(Option $option)
 	{
-
-		foreach ($option->getAction() as $function){
-		  $this->setFunctionColumn($function, 0);
-		}
-		
+	   $this->option = $option;
 	}
 
 	
