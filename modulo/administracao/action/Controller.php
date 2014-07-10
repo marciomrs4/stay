@@ -10,7 +10,7 @@ try {
 	$post = new Post();
 	
 	$post->setPost($_POST)
-		->cadastrarAdmin();
+		 ->cadastrarAdmin();
 	$post->clearPost();
 	
 } catch (Exception $e) {

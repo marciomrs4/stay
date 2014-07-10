@@ -13,42 +13,52 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/
 
 echo $_SESSION['variavel'];
 
-$coluns = array('#','','','Usu senha','Usu Nivel','Usu ativo','Pes codigo','Uni codigo');
+$coluns = array('','ID','Nome','Usu senha','Usu Nivel','Usu ativo','Pes codigo','Uni codigo');
 
 $users = new TbUsuario();
 
 $grid = new Grid($coluns,$users->findAll());
 
-$gridOption = new GridOption();
+
+$gridOption = new GridOption('/');
 $gridOption->setUrl('/stay/modulo/comercial')
-           ->setType('pencil')
+           ->setIco('pencil')
            ->setName('Remover');
+
 
 //$gridoption2 = clone $gridOption;
 
-$gridoption2 = GridOption::newOption()->setUrl('action/alterarItem.php?variavel')
-									  ->setType('search')
-									  ->setName('Alterar');
+/* $gridoption2 = ; */
 
+$option3 = new GridOption();
+$option3->setName('Excluir')
+		->setIco('cog')
+		->setUrl('action/remover.php?seila');
 
-$grid->addFunctionColumn('ucfirst', 1);
-
-$grid->addFunctionColumn('strtoupper', 3);
 
 function nova($var){
 	return 'R$ '.$var;
 }
 
+function mutliplica($val)
+{
+	return $val * 2;
+}
 
-$grid->addFunctionColumn('nova',4);
+
+$grid->addFunctionColumn('ucfirst', 1)
+	 ->addFunctionColumn('strtoupper', 3)
+	 ->addFunctionColumn('nova',4)
+	 ->addFunctionColumn('mutliplica',5)
+	 ->addOption($gridOption)
+	 ->addOption(GridOption::newOption()->setUrl('action/alterarItem.php?variavel')
+									    ->setIco('search')
+									    ->setName('Alterar'))
+	 ->addOption($option3)
+	 ->setEnableOption(true)
+	 ->show();
 
 
-
-
-$grid->addOption($gridOption);
-$grid->addOption($gridoption2);
-
-$grid->show();
 
 include '../../componente/rodape.php';
 ?>

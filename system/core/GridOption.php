@@ -37,9 +37,9 @@ class GridOption implements Option
 	    return $action;	
 	}
 	
-	public function setType($type)
+	public function setIco($ico)
 	{
-	    $this->type[] = $type;
+	    $this->type[] = $ico;
 	    return $this;
 	}
 	

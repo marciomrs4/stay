@@ -60,6 +60,8 @@ class Grid
 
 	private $option;
 	
+	private $enableOption = 1;
+	
 	/**
 	 *
 	 * Enter description here ...
@@ -83,6 +85,17 @@ class Grid
 	{
 		$this->cabecalho = $cabecalho;
 		return $this;
+	}
+	
+	public function setEnableOption($enableOption=true)
+	{
+		$this->enableOption = ($enableOption == true) ? 1 : 0;
+		return $this;
+	}
+	
+	private function getEnableOption()
+	{
+		return $this->enableOption;
 	}
 	
 	/**
@@ -114,6 +127,8 @@ class Grid
 	{
 		$this->function[$columnNumber] = $function;
 		$this->columnNumber[$columnNumber] = $columnNumber;
+		
+		return $this;
 	}
 	
 	private function getFunctionColumn($column, $columnNumber)
@@ -151,7 +166,7 @@ class Grid
 			$this->coluna = count($campo) / 2;
 			
 			#Serve para mostrar o Option Apenas uma vez
-			$enableOption = 1;
+			$enableOption = $this->getEnableOption();
 						
 			echo("<tr>");			
 			
@@ -196,6 +211,7 @@ class Grid
 	public function addOption(Option $option)
 	{
 	   $this->option[] = $option;
+	   return $this;
 	}
 
 	
