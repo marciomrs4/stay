@@ -11,26 +11,42 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/ModuloAdministracao.php';
 
+echo $_SESSION['variavel'];
 
-$coluns = array('#','Coluna 1','Usu Login','Usu senha','Usu Nivel','Usu ativo','Pes codigo','Uni codigo');
+$coluns = array('#','','','Usu senha','Usu Nivel','Usu ativo','Pes codigo','Uni codigo');
 
 $users = new TbUsuario();
 
 $grid = new Grid($coluns,$users->findAll());
 
 $gridOption = new GridOption();
-$gridOption->setUrl('mudar/remover')
-            ->setType('pencil')
-           ->addAction('Remover')
-           ->setUrl('action/Editar')
-            ->addAction('Editar')
-            ->setUrl('action/Alterar')
-            ->setType('search')
-            ->addAction('Alterar');
+$gridOption->setUrl('/stay/modulo/comercial')
+           ->setType('pencil')
+           ->setName('Remover');
+
+//$gridoption2 = clone $gridOption;
+
+$gridoption2 = GridOption::newOption()->setUrl('action/alterarItem.php?variavel')
+									  ->setType('search')
+									  ->setName('Alterar');
 
 
-$grid->colunaoculta = 0;
+$grid->addFunctionColumn('ucfirst', 1);
+
+$grid->addFunctionColumn('strtoupper', 3);
+
+function nova($var){
+	return 'R$ '.$var;
+}
+
+
+$grid->addFunctionColumn('nova',4);
+
+
+
+
 $grid->addOption($gridOption);
+$grid->addOption($gridoption2);
 
 $grid->show();
 

@@ -42,7 +42,7 @@ class Grid
 	 * @example dados que devem ser mostrados na tabela
 	 * dados = tabeladedados
 	 */
-	public $dados;
+	private $dados;
 
 	/**
 	 * Descrição ...
@@ -51,14 +51,14 @@ class Grid
 	 * cabecalho = titulodascolunas
 	 */
 			
-	public $cabecalho;
+	private $cabecalho;
 
 	
-	public $function;
+	private $function;
 	
-	public $columnNumber;
+	private $columnNumber;
 
-	protected $option;
+	private $option;
 	
 	/**
 	 *
@@ -69,18 +69,20 @@ class Grid
 	 */
 	public function __construct($cabecalho = NULL,$dados = NULL)
 	{
-		$this->setDados($dados);
-		$this->setCabecalho($cabecalho);
+		$this->setDados($dados)
+			 ->setCabecalho($cabecalho);
 	}
 
 	public function setDados($dados)
 	{
 		$this->dados = $dados;
+		return $this;
 	}
 	
 	public function setCabecalho($cabecalho)
 	{
 		$this->cabecalho = $cabecalho;
+		return $this;
 	}
 	
 	/**
@@ -95,38 +97,43 @@ class Grid
 
 		echo("<table class='{$this->css}' id='{$this->id}'>
 				<thead>
-					<tr class='info'>");				
+					<tr class='active'>");				
 				foreach ($this->cabecalho as $cabecalho):
 					echo("<th><a href='#'>{$cabecalho}</a></th>");
 				endforeach;
 				
 				echo("</tr>");
-		 echo("</thead>");
+		 echo("</thead>
+		 	<tbody>");
+		 
+		 return $this;
 	}
 
 
-	public function setFunctionColumn($function, $columnNumber)
+	public function addFunctionColumn($function, $columnNumber)
 	{
-		$this->function = $function;
-		$this->columnNumber = $columnNumber;
+		$this->function[$columnNumber] = $function;
+		$this->columnNumber[$columnNumber] = $columnNumber;
 	}
 	
-	public function getFunctionColumn($column,$count)
+	private function getFunctionColumn($column, $columnNumber)
 	{
-		$function = $this->function;
+		$function = '';
+		
+		if(array_key_exists($columnNumber, $this->function)){
+			$function = $this->function[$columnNumber];
+		}
 		
 		if(function_exists($function)){
-				
-			if($this->columnNumber == $count){
-				
+			if($this->columnNumber[$columnNumber] == $columnNumber){		
 				return $function($column);
 			}else{
 				return $column;
 			}
 		}else{
-				
 			return $column;
 		}
+		
 	}
 	
 	/**
@@ -136,36 +143,59 @@ class Grid
 	 */
 	private function criaTabela()
 	{
+		
 		$linha = 0;
 		
 		foreach ($this->dados as $campo){
 			
 			$this->coluna = count($campo) / 2;
 			
+			#Serve para mostrar o Option Apenas uma vez
+			$enableOption = 1;
+						
 			echo("<tr>");			
 			
 			for($x = $this->colunaoculta; $x < $this->coluna ; $x++){
 			    
-    				if($this->columnNumber == $x){
+    				if($enableOption == 1){
 
-                                    $this->option->setValue($campo[0]);
-    				    echo '<td>',$this->option->createOption($campo[0]),'</td>';
-    			
+   				    	echo '<td class="col-md-1">
+								<div class="btn-group">
+	           						<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+	               						Opções <span class="caret"></span>
+	           						</button>
+	             				<ul class="dropdown-menu" role="menu">';    				    	
+					             foreach ($this->option as $option){
+				    				  	echo $option->createOption($campo[0]);
+					             }
+
+    					   echo'</ul>
+	          					</div>';
+							'</td>';
+    					  #Serve para mostrar o Option Apenas uma vez
+    					  $enableOption = 0;
 			    }
+
 				
-				echo("<td>{$campo[$x]}</td>");
+				echo("<td>
+					{$this->getFunctionColumn($campo[$x],$x)}
+					
+					</td>");
+				
 			}
 			
+
 			$linha++;
 			echo('</tr>');
 		}
 		
-		echo('</table>');
+		echo('</tbody>
+			</table>');
 	}
 	
 	public function addOption(Option $option)
 	{
-	   $this->option = $option;
+	   $this->option[] = $option;
 	}
 
 	
@@ -175,8 +205,8 @@ class Grid
 	 */
 	public function show()
 	{
-			self::criaCabecalho();
-			self::criaTabela();
+			$this->criaCabecalho()
+				 ->criaTabela();
 	}
 }
 ?>

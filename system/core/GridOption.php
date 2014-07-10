@@ -3,103 +3,117 @@ namespace system\core;
 
 class GridOption implements Option
 {
-	protected $buttonList = array();
 	
-    protected $url;
-	protected $action;
-	protected $type;
-	private $value;
-    
+    protected $url = array();
+	protected $action = array();
+	protected $type = array();
+	private $value = array();
+	private $nameText = array();
+
+	private $atribuition;
+	
+	public function __construct($atribuition='=')
+	{
+		$this->atribuition = $atribuition;
+	}
+	
+	public static function newOption($atribuition='=')
+	{
+		return new GridOption($atribuition);
+	}
+	
 	public function setAction($action)
 	{
-	    $this->action = $action;
+	    $this->action[] = $action;
 	    return $this;
 	}
 
 	private function getAction()
 	{
-	    return $this->action;	
+		$action = '';
+		foreach ($this->action as $actions){
+			$action = $actions;
+		}
+	    return $action;	
 	}
 	
 	public function setType($type)
 	{
-	    $this->type = $type;
+	    $this->type[] = $type;
 	    return $this;
 	}
 	
 	private function getType()
 	{
-	    return $this->type;
+		$type = '';
+		foreach ($this->type as $types){
+			$type = $types;
+		}
+	    return $type;
 	}
 	
 	public function setUrl($url)
 	{
-	    $this->url = $url;
+	    $this->url[] = $url;
 	    return $this;
 	}
 	
 	private function getUrl()
 	{
-	   return $this->url;   
+		$url = '';
+		foreach ($this->url as $urls){
+			$url = $urls;
+		}
+	   return $url;   
 	}
 	
-	public function setValue($value)
+	protected function setValue($value)
 	{
-	    $this->value = $value;
+	    $this->value[] = $value;
 	    return $this;
 	}
 	
-	public function getValue()
+	private function getValue()
 	{
-	    return $this->value;
+	    $value = 0;
+	    foreach ($this->value as $values){
+	    	$value = $values;
+	    }
+		return $value;
 	}
 	
-	public function addAction($text)
+	public function setName($name)
 	{
-		
-		$this->buttonList[] =
-		"<li>
-		    <a href=".$this->getUrl().$this->getValue().">
-		      <span class='glyphicon glyphicon-{$this->getType()}'>
-		      </span>
-		      $text
-		      </a>
-		</li>";
-		
-		return $this;
-	    
+		$this->nameText[] = $name;
+		return $this;	
 	}
-
-	private function createButtonList($value)
+	
+	private function getName()
 	{
-	    $this->setValue($value);
-	    
-        $buttonList = '';
-        	    
-	    foreach ($this->buttonList as $button){
-	         $buttonList .= $button;
-	    }
-	    
-	    return $buttonList;
+		$nameText = '';
+		
+		foreach ($this->nameText as $nameTexts){
+			$nameText = $nameTexts;	
+		}
+		
+		return $nameText;
+		
 	}
 	
 	public function createOption($value)
 	{
+	   $this->setValue($value);
 
-	    
-	    $option = '';
-	    
-	    $option = '<div class="btn-group">
-	           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-	               Opções <span class="caret"></span>
-	           </button>
-	           <ul class="dropdown-menu" role="menu">'.
-	               $this->createButtonList($value).	        	
-	           '</ul>
-	          </div>';
-	    
-	    return $option;  
-       
+	   $buttonList =
+	   "<li>
+		    <a href='{$this->getUrl()}{$this->atribuition}{$this->getValue()}'>
+	   		    <span class='glyphicon glyphicon-{$this->getType()}'>
+	   			</span>
+	   				{$this->getName()}
+	   		</a>
+	   </li>";
+	   
+	   return $buttonList;		       
 	}
 	
 	
