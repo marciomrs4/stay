@@ -21,22 +21,7 @@ class GridOption implements Option
 	{
 		return new GridOption($atribuition);
 	}
-	
-	public function setAction($action)
-	{
-	    $this->action[] = $action;
-	    return $this;
-	}
-
-	private function getAction()
-	{
-		$action = '';
-		foreach ($this->action as $actions){
-			$action = $actions;
-		}
-	    return $action;	
-	}
-	
+		
 	public function setIco($ico)
 	{
 	    $this->type[] = $ico;

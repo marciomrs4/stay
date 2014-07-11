@@ -53,7 +53,6 @@ class Grid
 			
 	private $cabecalho;
 
-	
 	private $function;
 	
 	private $columnNumber;
@@ -61,6 +60,11 @@ class Grid
 	private $option;
 	
 	private $enableOption = 1;
+	
+	private $painelTitle;
+	
+	private $painelColor;
+	
 	
 	/**
 	 *
@@ -87,6 +91,13 @@ class Grid
 		return $this;
 	}
 	
+	/**
+	 * 
+	 * @param string $enableOption
+	 * @return \system\core\Grid
+	 * @example true or false
+	 */
+	
 	public function setEnableOption($enableOption=true)
 	{
 		$this->enableOption = ($enableOption == true) ? 1 : 0;
@@ -99,6 +110,41 @@ class Grid
 	}
 	
 	/**
+	 * 
+	 * @param string $title
+	 * @return \system\core\Grid
+	 * 
+	 * @example primary -
+				success -
+				info -
+				warning -
+				danger
+	 */
+	public function setPainelColor($painelColor='info')
+	{
+		$this->painelColor = $painelColor;
+		return $this;
+	}
+	
+	private function getPainelColor()
+	{
+		return $this->painelColor;
+	}
+	
+	public function setPainelTitle($title='')
+	{
+		$this->painelTitle = $title;
+		return $this;
+	}
+	
+	private function getPainelTitle()
+	{
+		return $this->painelTitle;
+	}
+	
+	
+	
+	/**
 	 *
 	 * Enter description here ...
 	 * @example Metodo que cria o cabeçalho baseado no array informado no
@@ -108,7 +154,13 @@ class Grid
 	private function criaCabecalho()
 	{
 
-		echo("<table class='{$this->css}' id='{$this->id}'>
+		echo("<div class='panel panel-{$this->getPainelColor()}'>
+				<div class='panel-heading'>
+					<h3 class='panel-title'>{$this->getPainelTitle()}</h3>
+				</div>
+			<div class='panel-body'>
+				
+			<table class='{$this->css}' id='{$this->id}'>
 				<thead>
 					<tr class='active'>");				
 				foreach ($this->cabecalho as $cabecalho):
@@ -205,7 +257,9 @@ class Grid
 		}
 		
 		echo('</tbody>
-			</table>');
+			</table>	
+		</div>
+	</div>');
 	}
 	
 	public function addOption(Option $option)
