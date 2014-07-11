@@ -1,7 +1,7 @@
 <?php
 namespace system\core;
 
-class GridOption implements Option
+class GridOption implements IOption
 {
 	
     protected $url = array();

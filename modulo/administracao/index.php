@@ -50,8 +50,8 @@ function mutliplica($val)
 
 $grid->addFunctionColumn('ucfirst', 1)
 	 ->addFunctionColumn('strtoupper', 3)
-	 ->addFunctionColumn('nova',4)
-	 ->addFunctionColumn('mutliplica',5)
+	 ->addFunctionColumn('mutliplica',4)
+	 ->addFunctionColumn('nova',5)
 	 ->addOption($gridOption)
 	 ->addOption(GridOption::newOption()->setUrl('action/alterarItem.php?variavel')
 									    ->setIco('search')
@@ -59,14 +59,19 @@ $grid->addFunctionColumn('ucfirst', 1)
 	 ->addOption($option3)
 	 ->addOption(GridOption::newOption()->setIco('save')
 										->setName('Exportar')
-										->setUrl('action/Exportar.php?id'))->show();
+										->setUrl('action/Exportar.php?id'));
 
-/* $painel = new Painel();
+$painel = new Painel();
 $painel->addGrid($grid)
 	   ->setPainelTitle('Lista de usuarios')
 	   ->setPainelColor('danger')
 	   ->show();
- */
+
+$novoPainel = new Painel();
+$novoPainel->addGrid(new Grid())
+		   ->setPainelTitle('Novo Painel')
+		   ->setPainelColor('warning')
+		   ->show();
 
 
 include '../../componente/rodape.php';
