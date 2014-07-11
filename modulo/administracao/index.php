@@ -4,6 +4,7 @@ use system\core\GridOption;
 use system\model\TbUsuario;
 use system\core\ActionController;
 use system\core\FormController;
+use system\core\Painel;
 include_once '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'/bootstrap.php';
 include_once 'config.php';
 
@@ -58,11 +59,14 @@ $grid->addFunctionColumn('ucfirst', 1)
 	 ->addOption($option3)
 	 ->addOption(GridOption::newOption()->setIco('save')
 										->setName('Exportar')
-										->setUrl('action/Exportar.php?id'))
-	 ->setPainelTitle('Lista de Usuarios')
-	 ->setPainelColor('primary')
-	 ->show();
+										->setUrl('action/Exportar.php?id'))->show();
 
+/* $painel = new Painel();
+$painel->addGrid($grid)
+	   ->setPainelTitle('Lista de usuarios')
+	   ->setPainelColor('danger')
+	   ->show();
+ */
 
 
 include '../../componente/rodape.php';

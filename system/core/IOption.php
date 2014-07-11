@@ -1,7 +1,7 @@
 <?php
 namespace system\core;
 
-interface Option
+interface IOption
 {
 	
 	public function createOption($value);

@@ -2,7 +2,7 @@
 
 namespace system\core;
 
-class Grid
+class Grid implements IGrid
 {
 
 	/**
@@ -61,10 +61,6 @@ class Grid
 	
 	private $enableOption = 1;
 	
-	private $painelTitle;
-	
-	private $painelColor;
-	
 	
 	/**
 	 *
@@ -109,40 +105,6 @@ class Grid
 		return $this->enableOption;
 	}
 	
-	/**
-	 * 
-	 * @param string $title
-	 * @return \system\core\Grid
-	 * 
-	 * @example primary -
-				success -
-				info -
-				warning -
-				danger
-	 */
-	public function setPainelColor($painelColor='info')
-	{
-		$this->painelColor = $painelColor;
-		return $this;
-	}
-	
-	private function getPainelColor()
-	{
-		return $this->painelColor;
-	}
-	
-	public function setPainelTitle($title='')
-	{
-		$this->painelTitle = $title;
-		return $this;
-	}
-	
-	private function getPainelTitle()
-	{
-		return $this->painelTitle;
-	}
-	
-	
 	
 	/**
 	 *
@@ -154,13 +116,7 @@ class Grid
 	private function criaCabecalho()
 	{
 
-		echo("<div class='panel panel-{$this->getPainelColor()}'>
-				<div class='panel-heading'>
-					<h3 class='panel-title'>{$this->getPainelTitle()}</h3>
-				</div>
-			<div class='panel-body'>
-				
-			<table class='{$this->css}' id='{$this->id}'>
+		echo("<table class='{$this->css}' id='{$this->id}'>
 				<thead>
 					<tr class='active'>");				
 				foreach ($this->cabecalho as $cabecalho):
@@ -257,12 +213,10 @@ class Grid
 		}
 		
 		echo('</tbody>
-			</table>	
-		</div>
-	</div>');
+			</table>');
 	}
 	
-	public function addOption(Option $option)
+	public function addOption(IOption $option)
 	{
 	   $this->option[] = $option;
 	   return $this;
