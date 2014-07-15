@@ -59,8 +59,6 @@ class Grid implements IGrid
 
 	private $option;
 	
-	private $enableOption = 1;
-	
 	
 	/**
 	 *
@@ -87,23 +85,6 @@ class Grid implements IGrid
 		return $this;
 	}
 	
-	/**
-	 * 
-	 * @param string $enableOption
-	 * @return \system\core\Grid
-	 * @example true or false
-	 */
-	
-	public function setEnableOption($enableOption=true)
-	{
-		$this->enableOption = ($enableOption == true) ? 1 : 0;
-		return $this;
-	}
-	
-	private function getEnableOption()
-	{
-		return $this->enableOption;
-	}
 	
 	
 	/**
@@ -168,13 +149,17 @@ class Grid implements IGrid
 	{
 		
 		$linha = 0;
+		$enableOption = 0;
 		
 		foreach ($this->dados as $campo){
 			
 			$this->coluna = count($campo) / 2;
 			
-			#Serve para mostrar o Option Apenas uma vez
-			$enableOption = $this->getEnableOption();
+			#Serve para mostrar o Option se for uma instancia de IOption
+			if($this->option[0] instanceof IOption){
+				$enableOption = 1;				
+			}
+
 						
 			echo("<tr>");			
 			

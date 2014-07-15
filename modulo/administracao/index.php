@@ -29,6 +29,7 @@ $users = new TbUsuario();
 $grid = new Grid($coluns,$users->findAll());
 
 
+
 $gridOption = new GridOption('#');
 $gridOption->setUrl('/stay/modulo/comercial/index.php')
            ->setIco('pencil')
@@ -48,30 +49,22 @@ function mutliplica($val)
 	return $val * 2;
 }
 
+
+
+
 $grid->addFunctionColumn('ucfirst', 1)
 	 ->addFunctionColumn('strtoupper', 3)
 	 ->addFunctionColumn('mutliplica',4)
 	 ->addFunctionColumn('nova',5)
-	 ->addOption($gridOption)
-	 ->addOption(GridOption::newOption()->setUrl('action/alterarItem.php?variavel')
-									    ->setIco('search')
-									    ->setName('Alterar'))
-	 ->addOption($option3)
-	 ->addOption(GridOption::newOption()->setIco('save')
-										->setName('Exportar')
-										->setUrl('action/Exportar.php?id'));
+     ->addOption($gridOption);
+
 
 $painel = new Painel();
 $painel->addGrid($grid)
 	   ->setPainelTitle('Lista de usuarios')
-	   ->setPainelColor('danger')
+	   ->setPainelColor('default')
 	   ->show();
 
-$novoPainel = new Painel();
-$novoPainel->addGrid(new Grid())
-		   ->setPainelTitle('Novo Painel')
-		   ->setPainelColor('warning')
-		   ->show();
 
 
 include '../../componente/rodape.php';

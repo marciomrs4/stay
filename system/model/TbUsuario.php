@@ -10,7 +10,7 @@ class TbUsuario extends DataBase
 	{
 		try {
 			
-			$stmt = $this->conexao->prepare('select * from tb_usuario limit 5');
+			$stmt = $this->conexao->prepare('select * from tb_usuario');
 			
 			$stmt->execute();
 			
