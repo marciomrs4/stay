@@ -22,7 +22,7 @@ $form->setForm()
 
 
 
-$coluns = array('','ID','Nome','Usu senha','Usu Nivel','Usu ativo','Pes codigo','Uni codigo');
+$coluns = array('','Usu Nivel','Usu ativo','Pes codigo','Uni codigo');
 
 $users = new TbUsuario();
 
@@ -50,7 +50,7 @@ function mutliplica($val)
 }
 
 
-
+$grid->colunaoculta = 3;
 
 $grid->addFunctionColumn('ucfirst', 1)
 	 ->addFunctionColumn('strtoupper', 3)
@@ -60,9 +60,9 @@ $grid->addFunctionColumn('ucfirst', 1)
 
 
 $painel = new Painel();
-$painel->addGrid($grid)
-	   ->setPainelTitle('Lista de usuarios')
+$painel->setPainelTitle('Lista de usuarios')
 	   ->setPainelColor('default')
+	   ->addGrid($grid)
 	   ->show();
 
 

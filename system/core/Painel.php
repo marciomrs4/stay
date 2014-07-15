@@ -52,6 +52,14 @@ class Painel
 		return $this;	
 	}
 	
+	private function validateGrid()
+	{
+		if($this->grid instanceof IGrid){
+			return $this->grid->show();
+		}
+		return '';
+	}
+	
 	public function show()
 	{
 		
@@ -60,7 +68,7 @@ class Painel
 						<h3 class='panel-title'>{$this->getPainelTitle()}</h3>
 					</div>
 			  	<div class='panel-body'>");
-			$this->grid->show();
+			$this->validateGrid();
 		  echo("</div>
 			  </div>");
 	
