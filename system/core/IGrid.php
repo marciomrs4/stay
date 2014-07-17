@@ -4,6 +4,6 @@ namespace system\core;
 interface IGrid
 {
 	
-	public function show();
+	public function show($show=true);
 	
 }

@@ -52,25 +52,28 @@ class Painel
 		return $this;	
 	}
 	
-	private function validateGrid()
+	private function validateGrid($show)
 	{
 		if($this->grid instanceof IGrid){
-			return $this->grid->show();
+			return $this->grid->show($show);
 		}
 		return '';
 	}
 	
-	public function show()
+	public function show($show=true)
 	{
+		if($show){
+			
 		
 		echo("<div class='panel panel-{$this->getPainelColor()}'>
 					<div class='panel-heading'>
 						<h3 class='panel-title'>{$this->getPainelTitle()}</h3>
 					</div>
 			  	<div class='panel-body'>");
-			$this->validateGrid();
+			$this->validateGrid($show);
 		  echo("</div>
 			  </div>");
+		}
 	
 	}
 }

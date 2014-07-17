@@ -21,8 +21,8 @@ class AcceptFormAdministracao extends PostController
 					   
 			try {
 
-				$tbUser = new TbUsuario();
-				$dados = $tbUser->save($this->post);
+/* 				$tbUser = new TbUsuario();
+				$dados = $tbUser->save($this->post); */
 				return $dados;
 			   } catch (Exception $e) {
 			   }

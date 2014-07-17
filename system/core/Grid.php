@@ -94,7 +94,7 @@ class Grid implements IGrid
 	 * construtor
 	 */
 	
-	private function criaCabecalho()
+	private function criarCabecalho()
 	{
 
 		echo("<table class='{$this->css}' id='{$this->id}'>
@@ -140,20 +140,23 @@ class Grid implements IGrid
 		
 	}
 	
+	
 	/**
 	 *
 	 * Enter description here ...
 	 * @example Metodo que cria a tabela com os dados iformados no contrutor
 	 */
-	private function criaTabela()
+	private function criarTabela()
 	{
 		
-		$linha = 0;
 		$enableOption = 0;
 		
 		foreach ($this->dados as $campo){
 			
-			$this->coluna = count($campo) / 2;
+			#Recria o array de forma númerica
+			$campo 	 = array_values($campo);
+			#Conta quantas colunas eu tenho em cada linha
+			$colunas = count($campo);
 			
 			#Serve para mostrar o Option se for uma instancia de IOption
 			if($this->option[0] instanceof IOption){
@@ -163,7 +166,7 @@ class Grid implements IGrid
 						
 			echo("<tr>");			
 			
-			for($x = $this->colunaoculta; $x < $this->coluna ; $x++){
+			for($x = $this->colunaoculta; $x < $colunas ; $x++){
 			    
     				if($enableOption == 1){
 
@@ -186,14 +189,10 @@ class Grid implements IGrid
 
 				
 				echo("<td>
-					{$this->getFunctionColumn($campo[$x],$x)}
-					
+						{$this->getFunctionColumn($campo[$x],$x)}
 					</td>");
-				
 			}
 			
-
-			$linha++;
 			echo('</tr>');
 		}
 		
@@ -212,10 +211,13 @@ class Grid implements IGrid
 	 * @example Metodo que mostra a tabela na tela, chamando todos
 	 * os metodos anteriores
 	 */
-	public function show()
+	public function show($show=true)
 	{
-			$this->criaCabecalho()
-				 ->criaTabela();
+		if($show){
+			$this->criarCabecalho()
+			->criarTabela();			
+		}
+
 	}
 }
 ?>

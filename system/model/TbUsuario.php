@@ -10,19 +10,18 @@ class TbUsuario extends DataBase
 	{
 		try {
 			
-			$stmt = $this->conexao->prepare('select * from tb_usuario');
+			$stmt = $this->conexao->prepare('SELECT * FROM tb_usuario');
 			
 			$stmt->execute();
 			
-			return $stmt;
+			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 			
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			throw new \Exception();
 		}
 
 		
 	}
-	
-	
+		
 	
 }

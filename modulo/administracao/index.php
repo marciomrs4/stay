@@ -13,18 +13,17 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/ModuloAdministracao.php';
 
-echo $_SESSION['variavel'];
 
-
-$form = new FormController();
-$form->setForm()
-	 ->getForm();
 
 
 
 $coluns = array('','Usu Nivel','Usu ativo','Pes codigo','Uni codigo');
 
 $users = new TbUsuario();
+
+/* echo '<pre>';
+print_r($users->findAll());
+echo '</pre>'; */
 
 $grid = new Grid($coluns,$users->findAll());
 
@@ -52,18 +51,25 @@ function mutliplica($val)
 
 $grid->colunaoculta = 3;
 
-$grid->addFunctionColumn('ucfirst', 1)
-	 ->addFunctionColumn('strtoupper', 3)
-	 ->addFunctionColumn('mutliplica',4)
-	 ->addFunctionColumn('nova',5)
-     ->addOption($gridOption);
+$grid->addOption($gridOption)
+	->addOption(GridOption::newOption('/')
+							->setIco('signal')
+							->setName('Danilo')
+							->setUrl('action/alterar'))
+	->addOption($option3);
 
+//$show = ($_SESSION['action'] == '') ? true : false;
 
 $painel = new Painel();
 $painel->setPainelTitle('Lista de usuarios')
 	   ->setPainelColor('default')
 	   ->addGrid($grid)
-	   ->show();
+	   ->show(($_SESSION['action'] == '') ? true : false);
+
+
+$form = new FormController();
+$form->setForm()
+	 ->getForm();
 
 
 
