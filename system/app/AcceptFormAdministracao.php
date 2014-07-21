@@ -15,15 +15,15 @@ class AcceptFormAdministracao extends PostController
 			
 			v::string()->email()
 					   ->notEmpty()
-					   ->setName('Doca Alterada')
+					   ->setName('Doca')
 					   ->setTemplate('O campo {{name}} é obrigatório')
 					   ->assert($this->post['doca']);
 					   
 			try {
 
-/* 				$tbUser = new TbUsuario();
-				$dados = $tbUser->save($this->post); */
-				return $dados;
+ 				$tbUser = new TbUsuario();
+				$dados = $tbUser->save($this->post);
+				return $this;
 			   } catch (Exception $e) {
 			   }
 					   
@@ -33,6 +33,7 @@ class AcceptFormAdministracao extends PostController
 			
 		}
 
+	return $this;
 		
 	}
 	

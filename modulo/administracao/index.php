@@ -17,22 +17,27 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/
 
 
 
-$coluns = array('','Usu Nivel','Usu ativo','Pes codigo','Uni codigo');
+$coluns = array('','Usu Nivel','Usu ativo');
 
 $users = new TbUsuario();
-
-/* echo '<pre>';
+/* 
+echo '<pre>';
 print_r($users->findAll());
-echo '</pre>'; */
-
+echo '</pre>';
+ */
 $grid = new Grid($coluns,$users->findAll());
 
 
 
-$gridOption = new GridOption('#');
-$gridOption->setUrl('/stay/modulo/comercial/index.php')
+$gridOption = new GridOption('');
+$gridOption->setUrl(ActionController::actionUrl()
+                                    ->setProjecName($configGlobal['projectName'])
+								    ->setUrlModulo('administracao')
+								    ->setUrlAction('alterar/doca')
+                                    ->setValue()
+								    ->getUrl())
            ->setIco('pencil')
-           ->setName('Remover');
+           ->setName('Alterar');
 
 $option3 = GridOption::newOption()->setName('Excluir')
   								  ->setIco('cog')
@@ -49,7 +54,6 @@ function mutliplica($val)
 }
 
 
-$grid->colunaoculta = 3;
 
 $grid->addOption($gridOption)
 	->addOption(GridOption::newOption('/')

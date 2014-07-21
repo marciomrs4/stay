@@ -38,7 +38,10 @@ class ActionController
 	
 	public function setValue($urlValue)
 	{
-		settype($urlValue, 'int');
+	    if($urlValue){
+	        settype($urlValue, 'int');	        
+	    }
+
 		$this->urlValue = '&urlValue='.$urlValue;
 		return $this;
 	}
@@ -56,9 +59,9 @@ class ActionController
 			   '&urlAction=',$this->urlAction,'
 				&urlValue=',$this->urlValue;
  */		
-		echo $this->__get('projectName'),
-		     $this->__get('urlModulo'),
-		     $this->__get('urlAction'),
+	  return $this->__get('projectName').
+		     $this->__get('urlModulo').
+		     $this->__get('urlAction').
 		     $this->__get('urlValue');
 		     
 		

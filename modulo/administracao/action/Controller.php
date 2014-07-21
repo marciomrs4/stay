@@ -9,9 +9,10 @@ try {
 	
 	$post = new Post();
 	
-	$post->setPost($_POST)
-		 ->cadastrarAdmin();
-	$post->clearPost();
+	$post->setpost($_POST)
+	     ->cadastrarAdmin()
+	     ->clearPost();
+	
 	
 } catch (Exception $e) {
 
@@ -19,16 +20,22 @@ try {
 	$form->setModulo($_SESSION['moduloTemp'])
 	->setAction($_SESSION['actionTemp'])
 	->setValue($_SESSION['valueTemp']);
+
+	$_SESSION['erro'] = $e->getMessage();
 	
-	$_SESSION['erro'] = $e->getMainMessage();
-	$_SESSION['erros'] = $e->findMessages(
-	array(
-		'string' => 'O campo {{name}} é obrigatorio',
-		'notEmpty' => 'O campo {{name}} não deve ser vazio',
-		'email' => 'O campo {{name}} deve ser um e-mail válido'
-	)
-	);
+    if(method_exists($e,'getMainMessage')){
+        $_SESSION['erro'] = $e->getMainMessage();        
+    }
 	
+    if(method_exists($e,'findMessages')){
+    	$_SESSION['erros'] = $e->findMessages(
+    	array(
+    		'string' => 'O valor {{name}} é obrigatorio',
+    		'notEmpty' => 'O valor {{name}} não é valido',
+    		'email' => 'O valor {{name}} deve ser um e-mail válido'
+    	)
+    	);
+    }
 }
 
 

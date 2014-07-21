@@ -37,6 +37,8 @@ abstract class PostController
 		foreach ($get as $chaves => $valor){break 1;}
 		
 		$this->post[$getname] = $valor;
+		
+		return $this;
 	}
 	
 	public function getValueGet($getname)

@@ -36,8 +36,27 @@ class AcceptForm extends PostController
 			throw new Exception();				
 			
 		}
-
 		
+	}
+	
+	public function alterarDoca()
+	{
+	   try {
+	       
+	       v::string()->notEmpty()
+	                  ->numeric()
+	                  ->setName('Doca')
+	                  ->setTemplate('O valor {{name}} é obrigatório')
+	                  ->assert($this->post['doca']);
+	                  
+            $tbUser = new TbUsuario();
+            $tbUser->update($this->post);
+	                  
+	                  
+	   	return $this;
+	   } catch (Exception $e) {
+	       
+	   }   throw new \Exception();
 	}
 	
 }
