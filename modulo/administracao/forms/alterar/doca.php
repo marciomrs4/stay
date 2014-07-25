@@ -20,7 +20,7 @@ print_r($dados);
 	
 	?>
 		<form class="form-horizontal" name="doca" method="post" action="action/alterarItem.php" role="form">
-			<input type="hidden" name="cod_test" value="<?php echo($dados['cod_test']);?>">
+			<input type="hidden" name="cod_doca" value="<?php echo($dados['cod_test']);?>">
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-1 control-label">Doca:</label>
 				<div class="col-sm-4">

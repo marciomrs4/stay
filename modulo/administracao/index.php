@@ -17,7 +17,7 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/
 
 
 
-$coluns = array('','Usu Nivel','Usu ativo');
+$coluns = array('','ID','Email');
 
 $users = new TbUsuario();
 /* 
@@ -27,6 +27,7 @@ echo '</pre>';
  */
 $grid = new Grid($coluns,$users->findAll());
 
+//$grid->colunaoculta =1;
 
 
 $gridOption = new GridOption('');
@@ -53,14 +54,19 @@ function mutliplica($val)
 	return $val * 2;
 }
 
-
+function qtdCaracter($var)
+{
+	return strlen($var).' '.$var;
+}
 
 $grid->addOption($gridOption)
 	->addOption(GridOption::newOption('/')
 							->setIco('signal')
 							->setName('Danilo')
 							->setUrl('action/alterar'))
-	->addOption($option3);
+	->addOption($option3)
+	->addFunctionColumn('qtdCaracter', 2)
+	->addFunctionColumn('qtdCaracter', 1);
 
 //$show = ($_SESSION['action'] == '') ? true : false;
 
@@ -68,7 +74,7 @@ $painel = new Painel();
 $painel->setPainelTitle('Lista de usuarios')
 	   ->setPainelColor('default')
 	   ->addGrid($grid)
-	   ->show(($_SESSION['action'] == '') ? true : false);
+	   ->show((!isset($_SESSION['action'])) ? true : false);
 
 
 $form = new FormController();

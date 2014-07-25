@@ -44,7 +44,7 @@ class AcceptForm extends PostController
 	   try {
 	       
 	       v::string()->notEmpty()
-	                  ->numeric()
+	                  ->email()
 	                  ->setName('Doca')
 	                  ->setTemplate('O valor {{name}} é obrigatório')
 	                  ->assert($this->post['doca']);

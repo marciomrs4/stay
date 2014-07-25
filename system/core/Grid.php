@@ -53,7 +53,7 @@ class Grid implements IGrid
 			
 	private $cabecalho;
 
-	private $function;
+	private $function = array();
 	
 	private $columnNumber;
 
