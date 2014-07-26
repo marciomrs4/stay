@@ -5,6 +5,7 @@ namespace system\app;
 use Respect\Validation\Validator as v;
 use system\core\PostController;
 use system\model\TbUsuario;
+use system\entity\Doca;
 
 class AcceptFormAdministracao extends PostController
 {
@@ -21,8 +22,11 @@ class AcceptFormAdministracao extends PostController
 					   
 			try {
 
+			    $Doca = new Doca();
+			    $Doca->setName($this->post['doca']);
+			    
  				$tbUser = new TbUsuario();
-				$dados = $tbUser->save($this->post);
+				$dados = $tbUser->save($Doca);
 				return $this;
 			   } catch (Exception $e) {
 			   }
