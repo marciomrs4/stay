@@ -36,7 +36,7 @@ class ActionController
 		return $this;
 	}
 	
-	public function setValue($urlValue)
+	public function setValue($urlValue=null)
 	{
 	    if($urlValue){
 	        settype($urlValue, 'int');	        

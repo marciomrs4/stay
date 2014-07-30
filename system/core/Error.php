@@ -7,10 +7,13 @@ class Error
 		
 	public function showErrors()
 	{
+		$erros = array();
+		
 		if(isset($_SESSION['erro']) or isset($_SESSION['erros'])){
 		echo '<div class="alert alert-danger">';
 			echo $_SESSION['erro'],'<br />';
-			foreach ($_SESSION['erros'] as $erro){
+			$erros = isset($_SESSION['erros']) ? $_SESSION['erros'] : $erros;
+			foreach ( $erros as $erro){
 				if($erro){
 					echo $erro,'<br />';
 				}

@@ -5,6 +5,7 @@ namespace system\app;
 use Respect\Validation\Validator as v;
 use system\core\PostController;
 use system\model\TbUsuario;
+use system\entity\Doca;
 
 class AcceptForm extends PostController
 {
@@ -52,9 +53,13 @@ class AcceptForm extends PostController
 	                  ->setName('Doca')
 	                  ->setTemplate('O valor {{name}} é obrigatório')
 	                  ->assert($this->post['doca']);
-	                   
+	                  
+            $Doca = new Doca();
+            $Doca->setName($this->post['doca'])
+                 ->setId($this->post['cod_doca']);
+	                  
             $tbUser = new TbUsuario();
-            $tbUser->update($this->post);
+            $tbUser->update($Doca);
 	                  
 	                  
 	   	return $this;

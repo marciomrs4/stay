@@ -53,7 +53,7 @@ class Grid implements IGrid
 			
 	private $cabecalho;
 
-	private $function;
+	private $function = array();
 	
 	private $columnNumber;
 
@@ -128,7 +128,7 @@ class Grid implements IGrid
 			$function = $this->function[$columnNumber];
 		}
 		
-		if(function_exists($function)){
+		if(is_callable($function)){
 			if($this->columnNumber[$columnNumber] == $columnNumber){		
 				return $function($column);
 			}else{

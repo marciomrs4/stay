@@ -14,19 +14,11 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/ModuloAdministracao.php';
 
 
-
-
-
-$coluns = array('','Usu Nivel','Usu ativo');
+$coluns = array('','ID','Email');
 
 $users = new TbUsuario();
-/* 
-echo '<pre>';
-print_r($users->findAll());
-echo '</pre>';
- */
-$grid = new Grid($coluns,$users->findAll());
 
+$grid = new Grid($coluns,$users->findAll());
 
 
 $gridOption = new GridOption('');
@@ -44,31 +36,20 @@ $option3 = GridOption::newOption()->setName('Excluir')
 								  ->setUrl('action/remover.php?seila');
 
 
-function nova($var){
-	return 'R$ '.$var;
-}
-
-function mutliplica($val)
-{
-	return $val * 2;
-}
-
-
-
 $grid->addOption($gridOption)
 	->addOption(GridOption::newOption('/')
 							->setIco('signal')
 							->setName('Danilo')
 							->setUrl('action/alterar'))
-	->addOption($option3);
-
-//$show = ($_SESSION['action'] == '') ? true : false;
+	->addOption($option3)
+	->addFunctionColumn(function($var){ return strtoupper($var);}, 1)
+	->addFunctionColumn(function($var){return $var.'Ahh manolo';}, 0);
 
 $painel = new Painel();
 $painel->setPainelTitle('Lista de usuarios')
 	   ->setPainelColor('default')
 	   ->addGrid($grid)
-	   ->show(($_SESSION['action'] == '') ? true : false);
+	   ->show(!isset($_SESSION['action']));
 
 
 $form = new FormController();
