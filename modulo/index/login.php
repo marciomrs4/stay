@@ -1,7 +1,7 @@
 <?php
 include_once '../../bootstrap.php';
 
-sleep(2);
+//sleep(2);
 
 echo 'Ola: ';
 

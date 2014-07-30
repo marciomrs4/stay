@@ -48,10 +48,10 @@ class TbUsuario extends DataBase
 	    
 	    try {
 	    	
-	        $statement = ("INSERT INTO test (test_descripton) value(?)");
+	        $statement = ("INSERT INTO test (test_descripton) value(:doca)");
 	        $stmt = $this->conexao->prepare($statement);
 	         
-	        $stmt->bindParam(1, $dados['doca'],\PDO::PARAM_STR);
+	        $stmt->bindParam(':doca', $dados['doca'],\PDO::PARAM_STR);
 	        
 	        $stmt->execute();
 	        
