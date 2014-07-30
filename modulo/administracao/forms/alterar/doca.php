@@ -1,7 +1,7 @@
 <?php 
 use system\model\TbUsuario;
-$tbUser = new TbUsuario();
 
+$tbUser = new TbUsuario();
 $dados = $tbUser->findOne($_SESSION['value']);
 
 print_r($dados);

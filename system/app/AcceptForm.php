@@ -42,13 +42,17 @@ class AcceptForm extends PostController
 	public function alterarDoca()
 	{
 	   try {
-	       
+
+	   		$this->post['doca'] = filter_var($this->post['doca'],FILTER_SANITIZE_STRIPPED);
+	   	
+	   		
+	   		
 	       v::string()->notEmpty()
-	                  ->numeric()
+	                  ->email()
 	                  ->setName('Doca')
 	                  ->setTemplate('O valor {{name}} é obrigatório')
 	                  ->assert($this->post['doca']);
-	                  
+	                   
             $tbUser = new TbUsuario();
             $tbUser->update($this->post);
 	                  

@@ -70,7 +70,7 @@ class TbUsuario extends DataBase
 	        $stmt = $this->conexao->prepare($statement);
 	
 	        $stmt->bindParam(1, $dados['doca'],\PDO::PARAM_STR);
-	        $stmt->bindParam(2, $dados['cod_doca'],\PDO::PARAM_STR);
+	        $stmt->bindParam(2, $dados['cod_test'],\PDO::PARAM_STR);
 	        	         
 	        $stmt->execute();
 	         

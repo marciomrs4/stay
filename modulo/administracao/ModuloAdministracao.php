@@ -23,7 +23,8 @@
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="<?php 
 								use system\core\ActionController as A;
-								A::actionUrl()->setProjecName($configGlobal['projectName'])
+
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])
 								               ->setUrlModulo('administracao')
 								               ->setUrlAction('cadastrar/doca')
 								               ->setValue(rand(1,100))
@@ -38,7 +39,7 @@
 									</a>									
 								</li>
 								<li><a href="<?php 
-								A::actionUrl()->setUrlAction('Cadastrar/doca3')
+								echo A::actionUrl()->setUrlAction('Cadastrar/doca3')
 								              ->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo 3
