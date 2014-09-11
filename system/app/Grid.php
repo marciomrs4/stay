@@ -25,13 +25,13 @@ class Grid implements IGrid
 		
 		$valores = array('Usu Nivel','Usu ativo','Pes codigo','Uni codigo');
 
-		echo "<table border='1'>
+		echo "<table border='1' class='table table-striped table-bordered table-condensed table-hover dataTable'>
 					<tr>";
 		foreach ($valores as $valor){
 			echo "<td> {$valor} </td>";
 		}
 		echo '</tr>
-				<table>';
+				</table>';
 	}
 	
 

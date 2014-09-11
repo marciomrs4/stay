@@ -15,57 +15,43 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/
 
 
 
-$coluns = array('','ID','Email','Nome','','','','','');
+$coluns = array('','ID','Email','Nome');
 
-/* $users = new TbUsuario();
+$users = new TbUsuario();
 
-echo '<pre>';
-print_r($users->findAll());
-echo '</pre>';
- */
-
-$array;
-foreach( file('csv.csv') as $dados){
-	$array[] = explode(';', $dados);
-}
-
-/* $option = new GridOption('');
+$option = new GridOption('');
 $option->setIco('search')
 	   ->setName('Procurar')
 		->setUrl('remover/artigo/');
 
- */
+$grid = new Grid($coluns,$users->findAll());
 
-$grid = new Grid($coluns,$array);
+$grid->addOption(GridOption::newOption('=')
+						->setIco('edit')
+						->setName('Editar'))
+	  ->addOption($option)
+	  ->addFunctionColumn(function($var){
+	  	return base64_encode($var);
+	  },0)
+	  ->addFunctionColumn(function($var){ 
+	  	return rand(1,10);},2)
+	  ->show();
 
 
-
-$grid->addFunctionColumn(function($var){
-	  	return $var.' Olha Aqui';
-	  },0)->addFunctionColumn(function($var){
-	 	return strtoupper($var);
-	 },3)->addFunctionColumn(function ($var){
-	return str_replace('/', '-', $var);
-},4);
-
+/* $form = new system\app\Form();
 
 $painel = new Painel();
-$painel->addGrid($grid)
+$painel->addGrid($form)
 		->setPainelTitle('Lista de Usuários')
-		->setPainelColor('primary')
+		->setPainelColor('warning')
 		->show();
 
-$grid2 = new \system\app\Grid('TEXTO');
-
-$painel2 =  new Painel();
-$painel2->addGrid($grid2)
-		->setPainelColor('primary')->setPainelTitle('Sei lá')->show();
 
 $form = new FormController();
 $form->setForm()
 	 ->getForm();
 
-
+ */
 
 include '../../componente/rodape.php';
 ?>
