@@ -1,3 +1,40 @@
+	
+	<!-- Button trigger modal -->
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<?php 
+use system\core\Error as M;
+$Message = new M();
+?>
+<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: <?php $Message->getDisplay(); ?>;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Mensagem</h4>
+      </div>
+      <div class="modal-body">
+           <?php 
+				$Message->showMessages();
+				$Message->showErrors();
+				$Message->clear();
+			?>
+      
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default close" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <!-- Inicio Rodapé -->
 		<footer>
 			<nav class="navbar navbar-default navbar-fixed-bottom"
@@ -24,11 +61,7 @@
 
 			</nav>
 			<nav class="navbar navbar-default" role="navigation">
-			<?php 
-					use system\core\Error as M;
-					$Message = new M();
-					$Message->showMessages();
-					?>
+			
 			</nav>
 
 		</footer>
@@ -41,7 +74,7 @@
 	<script src="../../js/jquery.validate.js"></script>
 	<script src="../../js/my-data-table.js"></script>
 	<script src="../../js/my-alert.js"></script>	
-	<script src="../../js/my-validator.js"></script>						
-		
+	<script src="../../js/my-validator.js"></script>
+			
 </body>
 </html>

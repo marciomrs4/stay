@@ -21,15 +21,15 @@ abstract class PostController
 		
 	}
 	
-	public function setpost($post)
+	public function setPost($post)
 	{
 		$this->post = $post;
 		return $this;
 	}
 	
-	public function getpost($post)
+	public function getPost()
 	{
-		return($this->post[$post]);
+		return($this->post);
 	}
 
 	public function setValueGet($get,$getname)
@@ -75,13 +75,14 @@ abstract class PostController
 		return($Array);
 	}
 	
-	public function clearPost($message = 'Cadastrado com sucesso !')
+	public function clearPost($message = 'Cadastrado com sucesso !',$action)
 	{
 		unset($_SESSION['action']);
+		unset($_SESSION[$action]);
 
 		$_SESSION['message'] = $message;
 
-		header('location: '.$_SERVER['HTTP_REFERER']);			
+		header('location: '.$_SERVER['HTTP_REFERER']);
 	}
 	
 	

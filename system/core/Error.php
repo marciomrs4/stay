@@ -22,10 +22,22 @@ class Error
 		}
 	}
 
+	public function getDisplay()
+	{
+		
+		if(isset($_SESSION['erro']) or isset($_SESSION['message'])){
+			$_SESSION['display'] = 'block';
+			echo $_SESSION['display'];		
+		}
+				
+		unset($_SESSION['display']);
+	}
+	
 	public function showMessages()
 	{
 		
 		if(isset($_SESSION['message'])){
+
 			echo '<div class="alert alert-success">',
 				$_SESSION['message'],
 			'</div>';
@@ -41,6 +53,13 @@ class Error
 	        //$_SESSION[$formName] == null;
 	    }
 	    return $this;
+	}
+
+	public function clear()
+	{
+		unset($_SESSION['action'], $_SESSION['modulo'],
+			  $_SESSION['value'],$_SESSION['erro'],
+			  $_SESSION['erros']);
 	}
 	
 }

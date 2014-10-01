@@ -27,15 +27,17 @@
 								echo A::actionUrl()->setProjecName($configGlobal['projectName'])
 								               ->setUrlModulo('administracao')
 								               ->setUrlAction('cadastrar/doca')
-								               ->setValue(rand(1,100))
 								               ->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo
 									</a>
 								<li><a href="<?php 
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca2')->getUrl();
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])
+												   ->setUrlModulo('administracao')
+												   ->setUrlAction('cadastrar/importarmvto')
+												   ->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
-										Novo 2
+										Importar Arquivo MVTO
 									</a>									
 								</li>
 								<li><a href="<?php 

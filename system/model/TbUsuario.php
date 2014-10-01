@@ -11,7 +11,7 @@ class TbUsuario extends DataBase
 	{
 		try {
 			
-			$stmt = $this->conexao->prepare('SELECT *, "Variavel" FROM test');
+			$stmt = $this->conexao->prepare('SELECT *, "Variavel","Wellington" FROM test');
 			
 			$stmt->execute();
 			

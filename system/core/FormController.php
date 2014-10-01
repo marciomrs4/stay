@@ -16,7 +16,8 @@ class FormController
 	
 	public function __construct()
 	{	
-		$this->setModulo()->setAction();
+		$this->setModulo()
+			 ->setAction();
 	}
 	
 	public function setModulo($modulo=null)
@@ -54,9 +55,6 @@ class FormController
 			echo 'Arquivo não encontrado';
 		}
 
-		unset($_SESSION['action'], $_SESSION['modulo'],
-			  $_SESSION['value'],$_SESSION['erro'],
-			  $_SESSION['erros']);
 	}
 
 	

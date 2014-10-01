@@ -1,6 +1,7 @@
 <?php
 require_once '../../../bootstrap.php';
 
+//sleep(2);
 
 use system\app\AcceptFormAdministracao as Post;
 use system\core\FormController;
@@ -9,17 +10,20 @@ try {
 	
 	$post = new Post();
 	
-	$post->setpost($_POST)
+	$post->setPost($_POST)
 	     ->cadastrarAdmin()
 	     ->clearPost();
 	
+	unset($_SESSION['cadastrar/doca']);
 	
 } catch (Exception $e) {
 
+	$_SESSION['cadastrar/doca'] = $post->getPost();
+	
 	$form = new FormController();
 	$form->setModulo($_SESSION['moduloTemp'])
-	->setAction($_SESSION['actionTemp'])
-	->setValue($_SESSION['valueTemp']);
+		 ->setAction($_SESSION['actionTemp'])
+	 	 ->setValue($_SESSION['valueTemp']);
 
 	$_SESSION['erro'] = $e->getMessage();
 	

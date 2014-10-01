@@ -1,5 +1,7 @@
-$(document).ready(function(){
-	$('#table-bootstrap').dataTable({
+var $table = jQuery.noConflict();
+
+$table(document).ready(function(){
+	$table('#table-bootstrap').dataTable({
 		"oLanguage": {
 			"oPaginate":{
 				"sPrevious": "Anterior ",

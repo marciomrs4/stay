@@ -1,4 +1,7 @@
-/*
-$(document).ready(function(){
-	$('.alert-success').show(1000).hide(5000);
-});*/
+var $alert = jQuery.noConflict();
+$alert(document).ready(function(){
+	$alert('.close').click(function(){
+		$alert("#myModal").hide(1000);
+	});
+
+});

@@ -15,43 +15,24 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/
 
 
 
-$coluns = array('','ID','Email','Nome');
+$coluns = array('Hospitais','Resposavel','Telefone');
 
-$users = new TbUsuario();
+//$users = new TbUsuario();
+//$users->findAll();
 
-$option = new GridOption('');
-$option->setIco('search')
-	   ->setName('Procurar')
-		->setUrl('remover/artigo/');
-
-$grid = new Grid($coluns,$users->findAll());
-
-$grid->addOption(GridOption::newOption('=')
-						->setIco('edit')
-						->setName('Editar'))
-	  ->addOption($option)
-	  ->addFunctionColumn(function($var){
-	  	return base64_encode($var);
-	  },0)
-	  ->addFunctionColumn(function($var){ 
-	  	return rand(1,10);},2)
-	  ->show();
+$array;
+foreach( file('ContatosHospitais.csv') as $dados){
+	$array[] = explode(';', $dados);
+}
 
 
-/* $form = new system\app\Form();
+$grid = new Grid($coluns,$array);
 
 $painel = new Painel();
-$painel->addGrid($form)
-		->setPainelTitle('Lista de Usuários')
-		->setPainelColor('warning')
+$painel->addGrid($grid)
+		->setPainelTitle('Contato dos Hospitais')
+		->setPainelColor('info')
 		->show();
-
-
-$form = new FormController();
-$form->setForm()
-	 ->getForm();
-
- */
 
 include '../../componente/rodape.php';
 ?>

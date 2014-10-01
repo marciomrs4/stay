@@ -11,7 +11,7 @@ creditcard( ): Um número de cartão de crédito
 equalTo( other ): igual à um determinado valor
  */
 
-/*
+
 var $valida = jQuery.noConflict();
 
 
@@ -40,20 +40,19 @@ function submitForm(form){
 
 $valida(document).ready( function() 
 {
-	alert('Ola mundo');
 	
 	$valida("#meuproblema").validate({
-		  REGRAS DE VALIDAÇÃO DO FORMULÁRIO 
+/*		  REGRAS DE VALIDAÇÃO DO FORMULÁRIO */
 		rules:{
 			pro_descricao:{
-				required: true,  Campo obrigatório 
-				minlength: 5     No mínimo 5 caracteres 
+				required: true,  /*Campo obrigatório */
+				minlength: 5     /*No mínimo 5 caracteres */
 			},
 			dep_codigo_problema:{
 				required: true
 			}
 		},
-		 DEFINIÇÃO DAS MENSAGENS DE ERRO 
+/*		 DEFINIÇÃO DAS MENSAGENS DE ERRO */
 		messages:{
 			pro_descricao:{
 				required: "Preencha o campo <u>" +problema+ "</u>",
@@ -69,8 +68,8 @@ $valida(document).ready( function()
 
 		rules:{
 			pro_titulo:{
-				required: true,  Campo obrigatório 
-				minlength: 5     No mínimo 5 caracteres 
+				required: true,  /*Campo obrigatório */
+				minlength: 5     /*No mínimo 5 caracteres*/ 
 			},
 			pro_descricao:{
 				required: true
@@ -91,9 +90,9 @@ $valida(document).ready( function()
 		}
 	});
 	
-	Inicio de validação do formulário de solicitacao
+/*	Inicio de validação do formulário de solicitacao*/
 		$valida("#solicitacao").validate({
-			REGRAS DE VALIDAÇÃO DO FORMULÁRIO 
+/*			REGRAS DE VALIDAÇÃO DO FORMULÁRIO */
 			rules:{
 				dep_codigo:{
 					required: true
@@ -106,7 +105,7 @@ $valida(document).ready( function()
 					minlength: 20
 				}
 			},
-			 DEFINIÇÃO DAS MENSAGENS DE ERRO 
+/*			 DEFINIÇÃO DAS MENSAGENS DE ERRO */
 			messages:{
 				dep_codigo:{
 					required: "O campo departamento é obrigatório"
@@ -125,11 +124,11 @@ $valida(document).ready( function()
 				submitForm(form);
 			}
 			});
-		Fim de validação do formulário de solicitacao
+/*		Fim de validação do formulário de solicitacao
 	
-		Inicio de validação do formulário de assentamento
+		Inicio de validação do formulário de assentamento*/
 		$valida("#doca").validate({
-			REGRAS DE VALIDAÇÃO DO FORMULÁRIO 
+/*			REGRAS DE VALIDAÇÃO DO FORMULÁRIO */
 			rules:{
 				
 				doca:{
@@ -137,17 +136,20 @@ $valida(document).ready( function()
 					minlength: 10
 				}
 			},
-			DEFINIÇÃO DAS MENSAGENS DE ERRO 
+/*			DEFINIÇÃO DAS MENSAGENS DE ERRO */
 			messages:{
 				doca:{
 					required: "O campo Doca é obrigatório",
 					minlength: "O campo Doca precisa de ao menos 10 caracteres"
 				}
+			},
+			submitHandler: function(form){			
+				submitForm(form);
 			}
 		});
-		Fim de validação do formulário de assentamento	
+/*		Fim de validação do formulário de assentamento	
 		
-		Inicio de validação do formulário de Atividade
+		Inicio de validação do formulário de Atividade*/
 		$valida("#atividade").validate({
 //			/*REGRAS DE VALIDAÇÃO DO FORMULÁRIO *
 			rules:{
@@ -171,7 +173,7 @@ $valida(document).ready( function()
 					minlength: 10
 				}
 			},
-			 DEFINIÇÃO DAS MENSAGENS DE ERRO 
+/*			 DEFINIÇÃO DAS MENSAGENS DE ERRO */
 			messages:{
 				
 				at_previsao_inicio:{
@@ -194,6 +196,6 @@ $valida(document).ready( function()
 				}
 			}
 		});
-		Fim de validação do formulário de Atividade	
+/*		Fim de validação do formulário de Atividade	*/
 	
-})(jQuery);*/
+});
