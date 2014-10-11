@@ -1,8 +1,4 @@
 	
-	<!-- Button trigger modal -->
-<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <?php 
@@ -22,18 +18,13 @@ $Message = new M();
 				$Message->showErrors();
 				$Message->clear();
 			?>
-      
-        ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default close" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default close" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>
 </div>
-
-
-
 
 <!-- Inicio Rodapé -->
 		<footer>
@@ -75,6 +66,6 @@ $Message = new M();
 	<script src="../../js/my-data-table.js"></script>
 	<script src="../../js/my-alert.js"></script>	
 	<script src="../../js/my-validator.js"></script>
-			
+				
 </body>
 </html>

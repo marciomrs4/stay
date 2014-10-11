@@ -21,10 +21,13 @@ class AcceptForm extends PostController
 
 			try {
 				
-
 				$tbUser = new TbUsuario();
-				$dados = 1;
-				return $tbUser->save($dados);
+				
+				$doca = new Doca();
+				$doca->setName($this->post['doca']);
+				
+				
+				return $tbUser->save($doca);
 				
 				
 			} catch (Exception $e) {

@@ -29,7 +29,7 @@
 								               ->setUrlAction('cadastrar/doca')
 								               ->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
-										Novo
+										Novo E-mail
 									</a>
 								<li><a href="<?php 
 								echo A::actionUrl()->setProjecName($configGlobal['projectName'])
@@ -41,8 +41,10 @@
 									</a>									
 								</li>
 								<li><a href="<?php 
-								echo A::actionUrl()->setUrlAction('Cadastrar/doca3')
-								              ->getUrl();
+								echo A::actionUrl()->setProjecName('stay')
+												   ->setUrlModulo('administracao')
+												   ->setUrlAction('Cadastrar/doca3')
+								                   ->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo 3
 									</a>								
@@ -62,13 +64,23 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li>
-									<a href="<?php 
-									A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('/formdefault')->getUrl();
-									?>"><span class="glyphicon glyphicon-list-alt">
+									<a href="index.php"><span class="glyphicon glyphicon-list-alt">
+										</span>
+										listar MVTO
+									</a>
+								</li>
+								<li>
+									<a href="listaUsuarios.php"><span class="glyphicon glyphicon-list-alt">
 										</span>
 										listar Usuários
 									</a>
-										</li>
+								</li>								
+								<li>
+									<a href="indexTeste.php"><span class="glyphicon glyphicon-list-alt">
+										</span>
+										listar de Clientes
+									</a>
+								</li>																
 							</ul>
 						</div>
 					</li>

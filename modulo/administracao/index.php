@@ -14,6 +14,10 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/ModuloAdministracao.php';
 
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+
 $coluns = array('LINHA','Identificador','DRT','Data','Hora','N° Relogio','ID Relogio');
 
 
@@ -41,7 +45,7 @@ function separador($var){
 $array;
 
 
-foreach( file($_FILES['arquivo']['tmp_name']) as $dados){
+foreach(file($_FILES['arquivo']['tmp_name']) as $dados){
 	$array[] = explode('-', separador($dados));
 }
 
@@ -57,21 +61,11 @@ $painel = new Painel();
 $painel->addGrid($grid)
 		->setPainelTitle('Arquivo MVTO')
 		->setPainelColor('primary')
-		->show($_SESSION['action'] ? false: true);
+		->show(isset($_SESSION['action']) ? false: true);
 
 $form = new FormController();
 $form->setForm()
 	 ->getForm();
 
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
-
 include '../../componente/rodape.php';
-
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
-
-
 ?>

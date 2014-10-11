@@ -20,7 +20,7 @@ class ActionController
 	
 	public function setProjecName($projectName)
 	{
-		$this->projectName = DIRECTORY_SEPARATOR.strtolower($projectName).DIRECTORY_SEPARATOR.$this->controler;
+		$this->projectName = '/'.strtolower($projectName).'/'.$this->controler;
 		return $this;
 	}
 
