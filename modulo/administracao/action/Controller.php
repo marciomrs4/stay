@@ -12,9 +12,9 @@ try {
 	
 	$post->setPost($_POST)
 	     ->cadastrarAdmin()
-	     ->clearPost();
-	
-	unset($_SESSION['cadastrar/doca']);
+	     ->clearPost('cadastrar/doca')
+		 ->router('../listaUsuarios.php');
+
 	
 } catch (Exception $e) {
 
@@ -40,7 +40,6 @@ try {
     	)
     	);
     }
+    
+    header('location: ../index.php');
 }
-
-
-header('location: '.$_SERVER['HTTP_REFERER']);

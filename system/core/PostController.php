@@ -75,14 +75,23 @@ abstract class PostController
 		return($Array);
 	}
 	
-	public function clearPost($message = 'Cadastrado com sucesso !',$action)
+	public function clearPost($action, $message = 'Cadastrado com sucesso !')
 	{
-		unset($_SESSION['action']);
-		unset($_SESSION[$action]);
+		unset($_SESSION['action'],$_SESSION[$action]);
 
 		$_SESSION['message'] = $message;
 
-		header('location: '.$_SERVER['HTTP_REFERER']);
+		return $this;
+
+	}
+	
+	public function router($location=null)
+	{
+		if($location==null){
+			header('location: '.$_SERVER['HTTP_REFERER']);
+		}
+
+		header('location: '.$location);
 	}
 	
 	

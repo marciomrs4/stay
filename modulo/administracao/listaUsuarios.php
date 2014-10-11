@@ -15,39 +15,18 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/
 
 
 
-$coluns = array('Hospitais','Resposavel','Telefone','TESTE');
+$coluns = array('Hospitais','Resposavel','Telefone','Nome');
 
-//$users = new TbUsuario();
-//$users->findAll();
-
-$array;
-foreach( file('ContatosHospitais.csv') as $dados){
-	$array[] = explode(';', $dados);
-}
-
-function teste ($var){
-	return 'R$ '.strtoupper($var);
-}
-
-$option = new GridOption('/');
-$option->setIco('edit')
-	   ->setName('Teste')
-	   ->setUrl('indexAction');
-
-$grid = new Grid($coluns,$array);
-$grid->addOption(GridOption::newOption()->setIco('search')
-										->setName('Brito')
-										->setUrl('algumacois.php'))
-	->addOption($option)
-	->addFunctionColumn('test',1);
+$users = new TbUsuario();
+$grid = new Grid($coluns,$users->findAll());
 
 
 $painel = new Painel();
 $painel->addGrid($grid)
-		->setPainelTitle('Outro nome')
+		->setPainelTitle('Contato dos Hospitais')
 		->setPainelColor('info')
 		->show(isset($_SESSION['action']) ? false: true);
- 
+
 $form = new FormController();
 $form->setForm()
 	 ->getForm();

@@ -8,12 +8,18 @@ include '../../componente/menuprincipal.php';
 
 include '../../modulo/comercial/ModuloComercial.php';
 
-use system\core\FormController;
+use system\app\Form;
+use system\core\Painel;
 
-$controler = new FormController();
+$form = new Form();
+$form->setForm();
 
-$controler->setForm()
-          ->getForm();
+$painel = new Painel();
+
+$painel->addGrid($form)
+	   ->setPainelTitle('Painel de Formulario')
+	   ->show();
+
 
 include '../../componente/rodape.php';
 ?>

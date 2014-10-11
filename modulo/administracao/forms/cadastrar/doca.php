@@ -6,7 +6,7 @@
 		<form class="form-horizontal" id="doca" name="doca" method="post" action="action/Controller.php" role="form">
 			
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-1 control-label">Doca:</label>
+				<label for="inputEmail3" class="col-sm-1 control-label">E-mail:</label>
 				<div class="col-sm-4">
 					<input type="text" name="doca" value="<?php echo($_SESSION['cadastrar/doca']['doca']);?>" class="form-control" id="inputEmail3"
 						placeholder="Descricao">

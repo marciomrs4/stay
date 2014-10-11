@@ -14,7 +14,7 @@ class Form extends FormController implements IGrid
 
 	public function show($true=true)
 	{
-		echo 'Form';
+		$this->getForm();
 	}
 
 }

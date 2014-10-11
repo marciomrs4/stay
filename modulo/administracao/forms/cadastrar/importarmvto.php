@@ -3,7 +3,7 @@
 		<h3 class="panel-title">Arquivo MVTO</h3>
 	</div>
 	<div class="panel-body">
-		<form class="form-horizontal" method="post"  enctype="multipart/form-data" action="" role="form">
+		<form class="form-horizontal" method="post"  enctype="multipart/form-data" action="index.php" role="form">
 			
 			<div class="form-group">
 				<div class="col-sm-4">

@@ -5,18 +5,20 @@ require_once '../../../bootstrap.php';
 use system\app\AcceptForm as Form;
 use system\core\FormController;
 
-$form = new Form();
+
 
 try {
+
+	$form = new Form();
 	
 	$form->setPost($_POST);
 
 	$form->cadastrarComercial();
 	
-	$form->clearPost();
+	$form->clearPost()->router('../index.php');
 	
 } catch (Exception $e) {
-
+	
 	$_SESSION['erro'] = $e->getMessage();
 
 if(method_exists($e,'getMainMessage')){
@@ -38,8 +40,6 @@ $form->setModulo($_SESSION['moduloTemp'])
 	 ->setAction($_SESSION['actionTemp'])
 	 ->setValue($_SESSION['valueTemp']);
 
+header('location: ../index.php');
+
 }
-
-
-
-header('location: '.$_SERVER['HTTP_REFERER']);

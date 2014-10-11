@@ -9,8 +9,8 @@ $table(document).ready(function(){
 					},
 				"sLengthMenu": "Mostrar _MENU_ resultado(s)",
 				"sSearch": "Pesquisar: ",
-				"sInfo": "Mostrando _START_ a _END_ de _TOTAL_",
-				"sInfoFiltered": "(Total: _MAX_ resultado(s))",
+				"sInfo": "Mostrando _START_ a _END_ de _TOTAL_ resultado(s)",
+				"sInfoFiltered": "(Total: _MAX_ )",
 				"sZeroRecords": "Resultado nao encontrado",
 				"sInfoEmpty": "Sem resultados"
 		}

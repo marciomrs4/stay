@@ -16,7 +16,7 @@ class AcceptFormAdministracao extends PostController
 			
 			v::string()->email()
 					   ->notEmpty()
-					   ->setName('Doca')
+					   ->setName('E-mail')
 					   ->setTemplate('O campo {{name}} é obrigatório')
 					   ->assert($this->post['doca']);
 					   

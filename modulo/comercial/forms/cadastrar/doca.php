@@ -3,12 +3,6 @@
 		<h3 class="panel-title">Novo</h3>
 	</div>
 	<div class="panel-body">
-		<?php 
-		use system\core\Error;
-		$form = new Error();
-		$form->validadeForm('cadastrar/doca')
-		     ->showErrors();
-		?>
 		<form name="cadastrar/doca" class="form-horizontal" action="action/action.php" method="post" role="form">
 			
 			<div class="form-group">

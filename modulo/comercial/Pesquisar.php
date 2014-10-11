@@ -12,7 +12,7 @@ include '../../modulo/comercial/ModuloComercial.php';
 print_r($_SESSION);
 
 use system\core\FormController;
-$controler = new FormController($_SESSION);
+$controler = new FormController();
 
 $controler->setForm()->getForm();
 
