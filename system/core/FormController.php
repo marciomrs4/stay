@@ -61,9 +61,9 @@ class FormController
 	public function setForm($form = null)
 	{
 		if($form == null){
-			 	$this->form = strtolower($this->dirForm.$this->action.'.php');
+			 	$this->form = $this->dirForm.$this->action.'.php';
 		}else{
-			$this->form = strtolower($form.'.php');
+			$this->form = $form.'.php';
 		}
 		
 		return $this;

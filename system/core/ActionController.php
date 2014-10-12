@@ -46,19 +46,13 @@ class ActionController
 		return $this;
 	}
 	
-	private function __get($propName)
+	public function __get($propName)
 	{
 	    return $this->$propName;
 	}
 	
 	public function getUrl()
 	{
-/* 		echo '/',$this->projectName,'/',
-				 $this->controler,'?
-				 urlModulo=',$this->urlModulo,
-			   '&urlAction=',$this->urlAction,'
-				&urlValue=',$this->urlValue;
- */		
 	  return $this->__get('projectName').
 		     $this->__get('urlModulo').
 		     $this->__get('urlAction').
