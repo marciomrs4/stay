@@ -6,7 +6,7 @@ abstract class DataBase
 	private $user = 'root';
 	private $password = 'q1w2e3mrs';
 	private $tipobanco = 'mysql';
-	private $database = 'test';
+	private $database = 'stay';
 	private $server =  'localhost';
 
 	/** 
@@ -27,5 +27,7 @@ abstract class DataBase
 			error_log("Erro ao tentar conectar no banco de dados",3,"c:\Error_log_novo_ocomon");
 			throw new \PDOException("ERRO: {$e->getMessage()} COD: {$e->getCode()} Arquivo {$e->getFile()}");
 		}
+		
+
 	}
 }

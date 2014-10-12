@@ -1,7 +1,7 @@
 <?php
 require_once '../../../bootstrap.php';
 
-//sleep(2);
+sleep(2);
 
 use system\app\AcceptFormAdministracao as Post;
 use system\core\FormController;

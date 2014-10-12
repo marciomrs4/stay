@@ -23,7 +23,7 @@ $(document).ready(function(){
 					
 					complete: function()
 					{
-						alert('Complete');
+						/*alert('Complete');*/
 				
 					},
 					

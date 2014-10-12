@@ -18,8 +18,9 @@
 						<span class="glyphicon glyphicon-arrow-down"></span>
 					</button>
 					<ul class="dropdown-menu">
-						<li><a href="../comercial/"><span class="glyphicon glyphicon-sort"></span> <?php echo $configGlobal['comercial']?></a></li>
-						<li><a href="../administracao/"><span class="glyphicon glyphicon-flash"></span> <?php echo $configGlobal['administracao']?></a></li>
+						<li><a href="../home/"><span class="glyphicon glyphicon-home"></span> Home</a></li>					
+						<li><a href="../comercial/"><span class="glyphicon glyphicon-usd"></span> <?php echo $configGlobal['comercial']?></a></li>
+						<li><a href="../administracao/"><span class="glyphicon glyphicon-book"></span> <?php echo $configGlobal['administracao']?></a></li>
 						<li class="divider"></li>
 						<li><a href="#"><span class="glyphicon glyphicon-user"></span> Alterar Senha</a></li>
 					</ul>

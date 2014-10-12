@@ -14,24 +14,13 @@ include '../../modulo/administracao/ModuloAdministracao.php';
 $painel = new Painel();
 
 $grid = new GraficoPainel();
-$grid->setForm('graficos/GraficoClientes');
-
-$grid2 = new GraficoPainel();
-$grid2->setForm('graficos/GraficoClientesBarra');
+$grid->setForm('graficos/ClientePJ');
 
 
-$painel->addGrid($grid2)
+$painel->addGrid($grid)
 		->setPainelColor('primary')
-		->setPainelTitle('Grafico de Clientes Barra')
+		->setPainelTitle('Quantidade de Clientes PJ')
 	    ->show(!isset($_SESSION['action']) ? true : false);
-
-$painel2 = clone $painel;
-
-
-$painel2->addGrid($grid)
-->setPainelColor('primary')
-->setPainelTitle('Grafico de Clientes')
-->show(!isset($_SESSION['action']) ? true : false);
 
 
 $form = new Form();

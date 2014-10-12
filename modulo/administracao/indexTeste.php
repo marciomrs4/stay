@@ -13,7 +13,16 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/ModuloAdministracao.php';
 
+$var = filter_input(INPUT_GET,'varT',FILTER_SANITIZE_STRING);
 
+echo $var;
+
+if($var){
+	$_SESSION['erro'] = 'Ahh funciona | Olha aqui: '.$var;
+	$_SESSION['erros'] = array('Erro 1','Erro 2','Erro 3');
+	$_SESSION['message'] = 'Sera que funciona junto';
+}
+	
 
 $coluns = array('Hospitais','Resposavel','Telefone','TESTE');
 
@@ -29,23 +38,26 @@ function teste ($var){
 	return 'R$ '.strtoupper($var);
 }
 
-$option = new GridOption('/');
-$option->setIco('edit')
-	   ->setName('Teste')
-	   ->setUrl('indexAction');
+$option = new GridOption('=');
+$option->setIco('trash')
+		->setName('Excluir')
+			->setUrl('indexTeste.php?varT');
 
 $grid = new Grid($coluns,$array);
-$grid->addOption(GridOption::newOption()->setIco('search')
-										->setName('Brito')
-										->setUrl('algumacois.php'))
+$grid->addOption(GridOption::newOption('#')->setIco('search')
+										->setName('Procurar')
+										->setUrl(''))
 	->addOption($option)
+	->addOption(GridOption::newOption('#')->setIco('edit')
+										  ->setName('Editar')
+										  ->setUrl(''))
 	->addFunctionColumn('test',1);
 
 
 $painel = new Painel();
 $painel->addGrid($grid)
-		->setPainelTitle('Outro nome')
-		->setPainelColor('info')
+		->setPainelTitle('Contatos Clientes')
+		->setPainelColor('primary')
 		->show(isset($_SESSION['action']) ? false: true);
  
 $form = new FormController();

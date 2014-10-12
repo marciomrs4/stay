@@ -14,39 +14,17 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/ModuloAdministracao.php';
 
-echo '<pre>';
+/* echo '<pre>';
 print_r($_SESSION);
-echo '</pre>';
+echo '</pre>'; */
 
-$coluns = array('LINHA','Identificador','DRT','Data','Hora','N° Relogio','ID Relogio');
-
-
-function separador($var){
-	 return substr($var, 0,9).'-'.
-			substr($var, 9,1).'-'.
-			#Linha abaixo é o DRT
-			substr($var, 10,8).'-'.
-			#Linha abaixo é a Data: Dia
-			substr($var, 24,2).'/'.						
-	 		#Linha abaixo é a Data: Mês
-			substr($var, 22,2).'/'.
-			#Linha abaixo é a Data: Ano
-			substr($var, 18,4).'-'.
-			#Linha abaixo é a Data: Hora
-			substr($var, 26,2).':'.
-			#Linha abaixo é a Data: Min
-			substr($var, 28,2).'-'.
-			#Numero do relogio
-			substr($var, 30,2).'-'.			
-			substr($var, 32);
-}
-
+$coluns = array('ID','Identificador','Nome','DEPTO','Data','Dia','Mes','Ano','ID UN');
 
 $array;
 
 
-foreach(file($_FILES['arquivo']['tmp_name']) as $dados){
-	$array[] = explode('-', separador($dados));
+foreach(file('csv.csv') as $dados){
+	$array[] = explode(';',$dados);
 }
 
 

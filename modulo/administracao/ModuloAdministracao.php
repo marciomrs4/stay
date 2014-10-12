@@ -72,7 +72,7 @@
 								<li>
 									<a href="listaUsuarios.php"><span class="glyphicon glyphicon-list-alt">
 										</span>
-										listar Usuários
+										listar Ramais
 									</a>
 								</li>								
 								<li>
@@ -97,15 +97,15 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li>
-									<a href="RelatorioAdm.php"><span class="glyphicon glyphicon-list-alt">
+									<a href="ClientePJ.php"><span class="glyphicon glyphicon-list-alt">
 										</span>
-										Relatorio Um
+										Clientes PJ por Executivo de Venda
 										</a>
 										</li>
-								<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>
-										Another action</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>
-										Something else here</a></li>
+ 								<li><a href="GraficoClientesBarra.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Arquitetos por Executivo de Venda</a></li>
+								<li><a href="GraficoClientes.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Quantidade de Clientes</a></li>
 							</ul>
 						</div>
 					</li>

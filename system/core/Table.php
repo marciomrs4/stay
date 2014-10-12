@@ -1,7 +1,7 @@
 <?php
 namespace system\core;
 
-interface Table extends DataBase
+interface Table
 {
 	
 	public function save($dados);

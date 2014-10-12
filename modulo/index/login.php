@@ -1,9 +1,7 @@
 <?php
 include_once '../../bootstrap.php';
 
-//sleep(2);
-
-echo 'Ola: ';
+sleep(2);
 
 //print_r($_POST);
 

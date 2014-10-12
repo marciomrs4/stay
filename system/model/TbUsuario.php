@@ -4,14 +4,18 @@ namespace system\model;
 
 use system\core\DataBase;
 use system;
+use system\core\Table;
 class TbUsuario extends DataBase
 {
+	private $tablename = 'tb_ramal';	
 	
 	public function findAll()
 	{
 		try {
 			
-			$stmt = $this->conexao->prepare('SELECT *, "Variavel","Wellington" FROM test');
+			$stmt = $this->conexao->prepare("SELECT ram_codigo, ram_nome, ram_numero,
+											ram_email, ram_celular, ram_telefone
+											 FROM $this->tablename");
 			
 			$stmt->execute();
 			
