@@ -10,6 +10,13 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/home/ModuloHome.php';
 
+/* session_destroy(); */
+
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+
+
 $tbUsuario = new TbArquivo();
 
 $grid = new \system\core\Grid(array('Numeracao','Nome Fantasia','Emprestimo'),$tbUsuario->findAll());

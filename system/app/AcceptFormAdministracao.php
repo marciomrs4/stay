@@ -22,11 +22,11 @@ class AcceptFormAdministracao extends PostController
 					   
 			try {
 
-			    $Doca = new Doca();
+			  /*   $Doca = new Doca();
 			    $Doca->setName($this->post['doca']);
 			    
  				$tbUser = new TbUsuario();
-				$dados = $tbUser->save($Doca);
+				$dados = $tbUser->save($Doca); */
 				return $this;
 			   } catch (Exception $e) {
 			   }

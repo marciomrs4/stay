@@ -13,7 +13,7 @@ try {
 	$post->setPost($_POST)
 	     ->cadastrarAdmin()
 	     ->clearPost('cadastrar/doca')
-		 ->router('../listaUsuarios.php');
+		 ->router('../indexTeste.php');
 
 	
 } catch (Exception $e) {
@@ -41,5 +41,5 @@ try {
     	);
     }
     
-    header('location: ../index.php');
+    header('location: ../indexTeste.php');
 }

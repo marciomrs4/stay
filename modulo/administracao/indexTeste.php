@@ -13,16 +13,10 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/ModuloAdministracao.php';
 
-$var = filter_input(INPUT_GET,'varT',FILTER_SANITIZE_STRING);
 
-echo $var;
-
-if($var){
-	$_SESSION['erro'] = 'Ahh funciona | Olha aqui: '.$var;
-	$_SESSION['erros'] = array('Erro 1','Erro 2','Erro 3');
-	$_SESSION['message'] = 'Sera que funciona junto';
-}
-	
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
 
 $coluns = array('Hospitais','Resposavel','Telefone','TESTE');
 
@@ -38,10 +32,14 @@ function teste ($var){
 	return 'R$ '.strtoupper($var);
 }
 
-$option = new GridOption('=');
+$option = new GridOption('');
 $option->setIco('trash')
 		->setName('Excluir')
-			->setUrl('indexTeste.php?varT');
+			->setUrl(ActionController::actionUrl()->setProjecName('stay')
+												  ->setUrlModulo('administracao')
+												  ->setUrlAction('cadastrar/doca')
+												  ->setValue()
+												  ->getUrl());
 
 $grid = new Grid($coluns,$array);
 $grid->addOption(GridOption::newOption('#')->setIco('search')
@@ -61,8 +59,7 @@ $painel->addGrid($grid)
 		->show(isset($_SESSION['action']) ? false: true);
  
 $form = new FormController();
-$form->setForm()
-	 ->getForm();
+$form->setForm()->getForm();
 
 include '../../componente/rodape.php';
 ?>

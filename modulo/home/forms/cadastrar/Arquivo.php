@@ -1,25 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Novo</h3>
-		
-		<?php 
-		
-		$_SESSION['cadastrar/arquivo'] = isset($_SESSION['cadastrar/arquivo']) ? $_SESSION['cadastrar/arquivo'] : array();
-		
-		foreach ($_SESSION['cadastrar/arquivo'] as $valores => $valor){
-				
-				echo $valores, '=>', $valor;
-					
-				if(isset($valores)){
-					$_SESSION['cadastrar/arquivo'][$valores] = $valor;
-				}else{
-					$_SESSION['cadastrar/arquivo'][$valores] = '';
-				}
-					
-			}
-		
-		
-		?>
 	</div>
 	<div class="panel-body">
 		<form class="form-horizontal" method="post" action="action/Arquivo.php" role="form">

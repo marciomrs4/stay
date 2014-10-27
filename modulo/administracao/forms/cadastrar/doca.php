@@ -8,7 +8,7 @@
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-1 control-label">E-mail:</label>
 				<div class="col-sm-4">
-					<input type="text" name="doca" value="<?php echo($_SESSION['cadastrar/doca']['doca']);?>" class="form-control" id="inputEmail3"
+					<input type="text" name="doca" value="<?php echo($_SESSION['administracao/cadastrar/doca']);?>" class="form-control" id="inputEmail3"
 						placeholder="Descricao">
 				</div>
 			</div>
